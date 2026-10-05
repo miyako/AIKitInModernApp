@@ -48,6 +48,8 @@ Full-width `（）` and `：` in prose. First occurrence of a technical term: �
 | chat completions (API) | チャット補完（API） | 4D AIKit ja docs |
 | vision helper | ビジョンヘルパー | 4D AIKit ja docs |
 | compatible provider | 互換性のあるプロバイダー | 4D AIKit ja docs |
+| provider settings file (AIProviders.json) | プロバイダー設定ファイル | 4D AIKit / 4D 21 R3; file name kept |
+| Settings (AI page) | 設定（AIページ） | 4D 21 R3 |
 | API key | APIキー | |
 | prompt / prompt engineering | プロンプト / プロンプトエンジニアリング | |
 | system message / user message | システムメッセージ / ユーザーメッセージ | |

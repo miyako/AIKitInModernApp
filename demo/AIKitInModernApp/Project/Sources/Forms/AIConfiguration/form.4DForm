@@ -89,7 +89,7 @@
 					"height": 21,
 					"class": "default",
 					"textAlign": "right",
-					"text": "Provider*:"
+					"text": "Provider:"
 				},
 				"Text1": {
 					"type": "text",
@@ -99,7 +99,7 @@
 					"height": 21,
 					"class": "default",
 					"textAlign": "right",
-					"text": "API Key*:"
+					"text": "API Key:"
 				},
 				"Text2": {
 					"type": "text",
@@ -123,13 +123,7 @@
 					"fill": "transparent",
 					"borderStyle": "none",
 					"hideFocusRing": true,
-					"placeholder": "AI Provider (eg. OpenAI, etc.)",
-					"dragging": "none",
-					"dropping": "custom",
-					"events": [
-						"onGettingFocus"
-					],
-					"method": "ObjectMethods/provider.4dm"
+					"enterable": false
 				},
 				"apiKey": {
 					"type": "input",
@@ -138,21 +132,14 @@
 					"width": 271,
 					"height": 17,
 					"sizingX": "grow",
-					"dataSource": "Form:C1466.apiKey",
-					"dataSourceTypeHint": "text",
+					"dataSource": "Form:C1466.apiKeyStatus",
 					"class": "default",
 					"textAlign": "left",
 					"fill": "transparent",
 					"borderStyle": "none",
 					"hideFocusRing": true,
 					"contextMenu": "none",
-					"placeholder": "e.g . sk-proj-xxx",
-					"dragging": "none",
-					"dropping": "custom",
-					"events": [
-						"onGettingFocus"
-					],
-					"method": "ObjectMethods/apiKey.4dm"
+					"enterable": false
 				},
 				"baseURL": {
 					"type": "input",
@@ -166,13 +153,7 @@
 					"fill": "transparent",
 					"borderStyle": "none",
 					"hideFocusRing": true,
-					"placeholder": "eg. http://127.0.0.1:11434/v1",
-					"dragging": "none",
-					"dropping": "custom",
-					"events": [
-						"onGettingFocus"
-					],
-					"method": "ObjectMethods/baseURL.4dm"
+					"enterable": false
 				},
 				"defaultModel": {
 					"type": "input",
@@ -249,7 +230,7 @@
 					"height": 21,
 					"class": "default",
 					"textAlign": "right",
-					"text": "Default Model:"
+					"text": "Default Model*:"
 				},
 				"Text4": {
 					"type": "text",
