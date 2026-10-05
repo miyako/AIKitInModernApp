@@ -14,27 +14,27 @@ var $data : Object
 var $doc : cs:C1710.DocumentEntity
 
 If ($extData=Null:C1517)
-	$display:="No extracted data available"
+	$display:=Localized string("Extracted_NoDataAvailable")
 	return 
 End if 
 
 $data:=$extData.extractedData
 
 If ($data=Null:C1517)
-	$display:="⚠️ No extracted data found"
+	$display:=Localized string("Extracted_NoDataFound")
 	return 
 End if 
 
 $doc:=ds:C1482.Document.get($extData.documentID)
 
 If ($doc=Null:C1517)
-	$display:="Document not found"
+	$display:=Localized string("Extracted_DocumentNotFound")
 	return 
 End if 
 
 // Display document type as header
 $display:="━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
-$display:=$display+"📄"+Uppercase:C13($doc.documentType)+" DETAILS\n"
+$display:=$display+"📄"+Replace string:C233(Localized string("Extracted_Details"); "{type}"; Uppercase:C13($doc.documentType))+"\n"
 $display:=$display+"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n"
 
 // Display all extracted fields dynamically
@@ -72,5 +72,5 @@ For each ($key; $keys)
 End for each 
 
 $display:=$display+"\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
-$display:=$display+"Extracted: "+String:C10($extData.extractionDate)
+$display:=$display+Replace string:C233(Localized string("Extracted_Date"); "{date}"; String:C10($extData.extractionDate))
 

@@ -22,9 +22,9 @@ Case of
 					Form:C1466.extractedDataArea:=$display
 				End if 
 			Else 
-				ALERT:C41("No extracted data found for this document.\n\nPlease analyze the document first.")
+				ALERT:C41(Localized string("AlertNoExtractedDataAnalyzeFirst"))
 			End if 
 		Else 
-			ALERT:C41("Please select a document first.")
+			ALERT:C41(Localized string("AlertSelectDocumentFirst"))
 		End if 
 End case 

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+	<file datatype="plaintext" original="EditJSONDialog" source-language="en" target-language="en">
+		<body>
+			<trans-unit id="EditJSON_WindowTitle" resname="EditJSON_WindowTitle">
+				<source>Edit Extracted Data - JSON Format</source>
+				<target>Edit Extracted Data - JSON Format</target>
+			</trans-unit>
+			<trans-unit id="EditJSON_Instruction" resname="EditJSON_Instruction">
+				<source>Edit the extracted data below. The data must be valid JSON format.</source>
+				<target>Edit the extracted data below. The data must be valid JSON format.</target>
+			</trans-unit>
+			<trans-unit id="EditJSON_Save" resname="EditJSON_Save">
+				<source>Save</source>
+				<target>Save</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

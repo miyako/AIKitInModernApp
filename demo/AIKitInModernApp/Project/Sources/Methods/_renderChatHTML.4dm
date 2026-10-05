@@ -19,7 +19,7 @@ var $styles : Text
 $body:=""
 
 If ($messages=Null:C1517) | ($messages.length=0)
-	$body:="<div class='empty'>💬 No messages yet. Start a conversation!</div>"
+	$body:="<div class='empty'>"+Localized string("Chat_Empty")+"</div>"
 Else 
 	For ($i; 0; $messages.length-1)
 		$msg:=$messages[$i]
@@ -35,7 +35,7 @@ Else
 		var $timestamp : Text
 		var $cssClass : Text
 		
-		$role:=$msg.role="user" ? "👤 You" : "🤖 Assistant"
+		$role:=$msg.role="user" ? Localized string("Chat_You") : Localized string("Chat_Assistant")
 		$content:=String:C10($msg.message)
 		$timestamp:=String:C10($msg.timestamp)
 		

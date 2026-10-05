@@ -146,18 +146,8 @@ Function _prepareDocumentFile($doc : cs:C1710.DocumentEntity)->$file : 4D:C1709.
 	
 	
 Function _buildExtractionPrompt()->$prompt : Text
-	$prompt:="You are analyzing a document. Extract ALL relevant information you can find:\\n\\n"
-	$prompt:=$prompt+"1. Document type (e.g., Invoice, Receipt, Contract, Letter, Report, etc.)\\n"
-	$prompt:=$prompt+"2. Document title or subject\\n"
-	$prompt:=$prompt+"3. Document date (format: YYYY-MM-DD)\\n"
-	$prompt:=$prompt+"4. Main content summary (2-3 sentences)\\n"
-	$prompt:=$prompt+"5. Key entities (names, organizations, amounts, dates, etc.)\\n"
-	$prompt:=$prompt+"6. Any other relevant fields specific to this document type\\n\\n"
-	$prompt:=$prompt+"Return ONLY valid JSON. Include ALL fields you can extract.\\n"
-	$prompt:=$prompt+"Required keys: documentType, title, documentDate, summary, keyEntities\\n"
-	$prompt:=$prompt+"Add any other relevant fields based on document type.\\n"
-	$prompt:=$prompt+"DO NOT include ```json or ``` markers.\\n"
-	$prompt:=$prompt+"DO NOT include any text before or after the JSON."
+	// Prompt in the UI language (XLIFF: Prompt_Analyze); the JSON keys stay in English
+	$prompt:=Localized string("Prompt_Analyze")
 	
 	return $prompt
 	

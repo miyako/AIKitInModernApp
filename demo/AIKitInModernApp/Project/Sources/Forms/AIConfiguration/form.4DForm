@@ -28,7 +28,7 @@
 		"onTimer",
 		"onBoundVariableChange"
 	],
-	"windowTitle": "window title",
+	"windowTitle": ":xliff:AIConfig_WindowTitle",
 	"destination": "detailScreen",
 	"pages": [
 		{
@@ -84,32 +84,32 @@
 				"Text": {
 					"type": "text",
 					"top": 38,
-					"left": 111,
-					"width": 80,
+					"left": 41,
+					"width": 150,
 					"height": 21,
 					"class": "default",
 					"textAlign": "right",
-					"text": "Provider:"
+					"text": ":xliff:AIConfig_Provider"
 				},
 				"Text1": {
 					"type": "text",
 					"top": 73,
-					"left": 111,
-					"width": 80,
+					"left": 41,
+					"width": 150,
 					"height": 21,
 					"class": "default",
 					"textAlign": "right",
-					"text": "API Key:"
+					"text": ":xliff:AIConfig_APIKey"
 				},
 				"Text2": {
 					"type": "text",
 					"top": 107,
-					"left": 111,
-					"width": 80,
+					"left": 41,
+					"width": 150,
 					"height": 21,
 					"class": "default",
 					"textAlign": "right",
-					"text": "Base URL: "
+					"text": ":xliff:AIConfig_BaseURL"
 				},
 				"provider": {
 					"type": "input",
@@ -167,7 +167,7 @@
 					"fill": "transparent",
 					"borderStyle": "none",
 					"hideFocusRing": true,
-					"placeholder": "eg. gpt-4o-mini",
+					"placeholder": ":xliff:AIConfig_PlaceholderDefaultModel",
 					"dragging": "none",
 					"dropping": "custom",
 					"events": [
@@ -187,7 +187,7 @@
 					"fill": "transparent",
 					"borderStyle": "none",
 					"hideFocusRing": true,
-					"placeholder": "eg. gpt-4o",
+					"placeholder": ":xliff:AIConfig_PlaceholderVisionModel",
 					"dragging": "none",
 					"dropping": "custom",
 					"events": [
@@ -201,7 +201,7 @@
 					"left": 261,
 					"width": 100,
 					"height": 30,
-					"text": "Save",
+					"text": ":xliff:AIConfig_Save",
 					"focusable": false,
 					"method": "ObjectMethods/Button.4dm",
 					"events": [
@@ -215,7 +215,7 @@
 					"width": 100,
 					"height": 30,
 					"action": "cancel",
-					"text": "Cancel",
+					"text": ":xliff:CommonCancel",
 					"focusable": false,
 					"events": [
 						"onClick"
@@ -225,22 +225,22 @@
 				"Text3": {
 					"type": "text",
 					"top": 142,
-					"left": 111,
-					"width": 80,
+					"left": 41,
+					"width": 150,
 					"height": 21,
 					"class": "default",
 					"textAlign": "right",
-					"text": "Default Model*:"
+					"text": ":xliff:AIConfig_DefaultModel"
 				},
 				"Text4": {
 					"type": "text",
 					"top": 176,
-					"left": 71,
-					"width": 120,
+					"left": 41,
+					"width": 150,
 					"height": 21,
 					"class": "default",
 					"textAlign": "right",
-					"text": "Vision Model:"
+					"text": ":xliff:AIConfig_VisionModel"
 				},
 				"object6": {
 					"type": "rectangle",
@@ -263,7 +263,7 @@
 					"fill": "transparent",
 					"borderStyle": "none",
 					"hideFocusRing": true,
-					"placeholder": "eg. 1000",
+					"placeholder": ":xliff:AIConfig_PlaceholderMaxTokens",
 					"dragging": "none",
 					"dropping": "custom",
 					"events": [
@@ -274,12 +274,12 @@
 				"Text5": {
 					"type": "text",
 					"top": 211,
-					"left": 71,
-					"width": 120,
+					"left": 41,
+					"width": 150,
 					"height": 21,
 					"class": "default",
 					"textAlign": "right",
-					"text": "Max Tokens:"
+					"text": ":xliff:AIConfig_MaxTokens"
 				},
 				"object7": {
 					"type": "rectangle",
@@ -302,7 +302,7 @@
 					"fill": "transparent",
 					"borderStyle": "none",
 					"hideFocusRing": true,
-					"placeholder": "eg. 0.3",
+					"placeholder": ":xliff:AIConfig_PlaceholderTemperature",
 					"dragging": "none",
 					"dropping": "custom",
 					"events": [
@@ -313,20 +313,21 @@
 				"Text6": {
 					"type": "text",
 					"top": 246,
-					"left": 71,
-					"width": 120,
+					"left": 41,
+					"width": 150,
 					"height": 21,
 					"class": "default",
 					"textAlign": "right",
-					"text": "Temperature:"
+					"text": ":xliff:AIConfig_Temperature"
 				},
 				"Text7": {
 					"type": "text",
-					"text": "* : Mandatory field",
+					"text": ":xliff:AIConfig_Mandatory",
 					"top": 9,
-					"left": 377,
-					"width": 103,
-					"height": 15
+					"left": 330,
+					"width": 150,
+					"height": 15,
+					"textAlign": "right"
 				}
 			}
 		}

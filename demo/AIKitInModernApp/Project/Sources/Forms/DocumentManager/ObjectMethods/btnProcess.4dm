@@ -10,7 +10,7 @@ Case of
 			
 			// Check if already processed
 			If (Form:C1466.selectedDoc.status="Processed")
-				CONFIRM:C162("This document has already been analyzed. Do you really want to reanalyze?"; "OK"; "Cancel")
+				CONFIRM:C162(Localized string("ConfirmReanalyze"); Localized string("CommonOK"); Localized string("CommonCancel"))
 				If (ok=0)
 					return 
 				End if 
@@ -18,7 +18,7 @@ Case of
 			
 			// Check if currently processing
 			If (Form:C1466.selectedDoc.status="Processing")
-				CONFIRM:C162("This document has already been analyzed. Do you really want to reanalyze?"; "OK"; "Cancel")
+				CONFIRM:C162(Localized string("ConfirmReanalyze"); Localized string("CommonOK"); Localized string("CommonCancel"))
 				If (ok=0)
 					return 
 				End if 
@@ -38,9 +38,9 @@ Case of
 			Form:C1466.processingDocID:=$docID
 			SET TIMER:C645(120)  // 120 ticks = 2 seconds
 			
-			Form:C1466.extractedDataArea:="🔄 Processing document asynchronously...\n\nPlease wait while the AI analyzes your document."
+			Form:C1466.extractedDataArea:=Localized string("Extracted_Processing")
 			
 		Else 
-			ALERT:C41("Please select a document first.")
+			ALERT:C41(Localized string("AlertSelectDocumentFirst"))
 		End if 
 End case 

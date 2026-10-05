@@ -28,7 +28,7 @@ Case of
 			Else 
 				// Generate new summary asynchronously
 				var $loadingHTML : Text
-				$loadingHTML:="<div style='text-align:center;padding:40px;color:#6b7280'>⏳ Generating "+$summaryType+" summary...</div>"
+				$loadingHTML:="<div style='text-align:center;padding:40px;color:#6b7280'>"+Replace string:C233(Localized string("Summary_Generating"); "{type}"; Localized string("SummaryType_"+$summaryType))+"</div>"
 				$loadingHTML:=_renderSummaryHTML($loadingHTML)
 				WA SET PAGE CONTENT:C1037(*; "summaryText"; $loadingHTML; "")
 				
@@ -44,7 +44,7 @@ Case of
 				SET TIMER:C645(120)  // 2 seconds
 			End if 
 		Else 
-			ALERT:C41("Please select a processed document first")
+			ALERT:C41(Localized string("AlertSelectProcessedDocument"))
 		End if 
 		
 End case 

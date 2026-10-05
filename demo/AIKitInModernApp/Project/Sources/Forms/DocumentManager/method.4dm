@@ -8,6 +8,13 @@ Case of
 		Form:C1466.summaryText:=""
 		Form:C1466.summaryHTML:=""
 		Form:C1466.summaryType:="Brief"
+		Form:C1466.summaryTypeList:={codes: ["Brief"; "Detailed"; "Executive"; "KeyPoints"]; index: 0}
+		// Summary types: stored codes, displayed with localised labels
+		var $code : Text
+		Form:C1466.summaryTypeList.values:=[]
+		For each ($code; Form:C1466.summaryTypeList.codes)
+			Form:C1466.summaryTypeList.values.push(Localized string("SummaryType_"+$code))
+		End for each 
 		Form:C1466.chatMessages:=New collection:C1472
 		Form:C1466.chatDisplay:=""
 		Form:C1466.chatInput:=""
@@ -51,7 +58,7 @@ Case of
 					$extData:=ds:C1482.ExtractedData.query("documentID = :1"; $doc.UUID).first()
 					
 					If ($extData=Null:C1517)
-						Form:C1466.extractedDataArea:="❌ No extracted data found"
+						Form:C1466.extractedDataArea:=Localized string("Extracted_NoDataFoundError")
 					Else 
 						Form:C1466.extractedDataArea:=_displayExtractedData($extData)
 						
@@ -61,7 +68,7 @@ Case of
 						Form:C1466.generatingSummaryType:="Brief"
 					End if 
 				Else 
-					Form:C1466.extractedDataArea:="❌ ERROR\n\n"+$doc.statusMessage
+					Form:C1466.extractedDataArea:=Replace string:C233(Localized string("Extracted_Error"); "{message}"; $doc.statusMessage)
 				End if 
 			End if 
 		End if   // Poll for summary generation completion

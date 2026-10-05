@@ -13,7 +13,7 @@
 
 var $windowTitle : Text
 var $window : Integer
-$windowTitle:="Document Manager"
+$windowTitle:=Localized string("DocMgr_WindowTitle")
 
 If (Count parameters=0)
 	

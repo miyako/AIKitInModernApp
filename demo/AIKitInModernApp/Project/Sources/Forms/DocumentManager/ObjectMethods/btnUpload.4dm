@@ -5,14 +5,14 @@ Case of
 		var $filePath : Text
 		var $docID : Text
 		
-		var $doc:=Select document:C905(""; "*.*"; "Select a document to upload"; 0)
+		var $doc:=Select document:C905(""; "*.*"; Localized string("Upload_SelectDocument"); 0)
 		
 		If (OK=1)
 			$filePath:=Document
 			$docID:=_uploadDocument($filePath)
 			
 			If ($docID#"")
-				ALERT:C41("Document uploaded successfully. Click 'Analyze Selected' to extract data.")
+				ALERT:C41(Localized string("AlertUploaded"))
 				
 				// Refresh documents list
 				Form:C1466.documents:=ds:C1482.Document.all().orderBy("uploadDate desc")

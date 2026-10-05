@@ -23,7 +23,7 @@ If ($extData#Null:C1517)
 		// Return formatted JSON for AI context
 		$context:=JSON Stringify:C1217($data; *)
 	Else 
-		$context:="No extracted data available."
+		$context:=Localized string("Context_NoExtractedData")
 	End if 
 End if 
 

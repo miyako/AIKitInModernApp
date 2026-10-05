@@ -2,6 +2,9 @@
 // When user changes summary type, check if it exists or prompt to generate
 
 If (Form event code:C388=On Data Change:K2:15)
+	// The drop-down shows localised labels; Form.summaryType keeps the stored code
+	Form:C1466.summaryType:=Form:C1466.summaryTypeList.codes[Form:C1466.summaryTypeList.index]
+	
 	If (Form:C1466.selectedDoc#Null:C1517)
 		var $summaryType : Text
 		var $summary : cs:C1710.SummariesEntity
@@ -21,7 +24,7 @@ If (Form event code:C388=On Data Change:K2:15)
 			If (Form:C1466.generatingSummaryFor=Form:C1466.selectedDoc.UUID) & (Form:C1466.generatingSummaryType=$summaryType)
 				// Show generating state
 				var $loadingHTML : Text
-				$loadingHTML:="<div style='text-align:center;padding:40px;color:#6b7280'>⏳ Generating "+$summaryType+" summary...</div>"
+				$loadingHTML:="<div style='text-align:center;padding:40px;color:#6b7280'>"+Replace string:C233(Localized string("Summary_Generating"); "{type}"; Localized string("SummaryType_"+$summaryType))+"</div>"
 				$loadingHTML:=_renderSummaryHTML($loadingHTML)
 				WA SET PAGE CONTENT:C1037(*; "summaryText"; $loadingHTML; "")
 			Else 
@@ -29,8 +32,8 @@ If (Form event code:C388=On Data Change:K2:15)
 				var $promptHTML : Text
 				$promptHTML:="<div style='text-align:center;padding:40px;color:#6b7280'>"
 				$promptHTML:=$promptHTML+"<div style='font-size:16px;margin-bottom:10px'>📝</div>"
-				$promptHTML:=$promptHTML+"<div>No <strong>"+$summaryType+"</strong> summary available.</div>"
-				$promptHTML:=$promptHTML+"<div style='margin-top:10px;font-size:13px'>Click <strong>Generate</strong> to create one.</div>"
+				$promptHTML:=$promptHTML+"<div>"+Replace string:C233(Localized string("Summary_NotAvailable"); "{type}"; Localized string("SummaryType_"+$summaryType))+"</div>"
+				$promptHTML:=$promptHTML+"<div style='margin-top:10px;font-size:13px'>"+Localized string("Summary_ClickGenerate")+"</div>"
 				$promptHTML:=$promptHTML+"</div>"
 				$promptHTML:=_renderSummaryHTML($promptHTML)
 				WA SET PAGE CONTENT:C1037(*; "summaryText"; $promptHTML; "")

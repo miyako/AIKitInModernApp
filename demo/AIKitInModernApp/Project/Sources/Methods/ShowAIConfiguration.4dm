@@ -15,7 +15,7 @@
 
 var $windowTitle : Text
 var $window : Integer
-$windowTitle:="AI Configuration"
+$windowTitle:=Localized string("AIConfig_WindowTitle")
 
 If (Count parameters=0)
 	
@@ -50,9 +50,9 @@ Else
 	End use 
 	
 	If ($aiconfig.apiKey="")
-		$apiKeyStatus:="Not set: edit Project/Sources/AIProviders.json"
+		$apiKeyStatus:=Localized string("AIConfig_KeyNotSet")
 	Else 
-		$apiKeyStatus:="Set in Project/Sources/AIProviders.json"
+		$apiKeyStatus:=Localized string("AIConfig_KeySet")
 	End if 
 	
 	$tempConfig:={\

@@ -4,8 +4,8 @@ Case of
 		If (Form:C1466.selectedDoc#Null:C1517)
 			// Show confirmation dialog
 			var $message : Text
-			$message:="Delete document '"+Form:C1466.selectedDoc.fileName+"'? This action cannot be undone."
-			CONFIRM:C162($message; "Delete"; "Cancel")
+			$message:=Replace string:C233(Localized string("ConfirmDeleteDocument"); "{name}"; Form:C1466.selectedDoc.fileName)
+			CONFIRM:C162($message; Localized string("CommonDelete"); Localized string("CommonCancel"))
 			
 			If (ok=1)  // Delete confirmed
 				var $docID : Text
@@ -38,7 +38,7 @@ Case of
 				
 				// Clear summary web area
 				var $emptyHTML : Text
-				$emptyHTML:=_renderSummaryHTML("<div style='text-align:center;padding:40px;color:#9ca3af'>No document selected</div>")
+				$emptyHTML:=_renderSummaryHTML("<div style='text-align:center;padding:40px;color:#9ca3af'>"+Localized string("Summary_NoDocumentSelected")+"</div>")
 				WA SET PAGE CONTENT:C1037(*; "summaryText"; $emptyHTML; "")
 				
 				// Clear chat web area
@@ -50,9 +50,9 @@ Case of
 				
 				// Clear preview
 				WA OPEN URL:C1020(*; "previewArea"; "about:blank")
-				ALERT:C41("Document and all related data deleted successfully")
+				ALERT:C41(Localized string("AlertDocumentDeleted"))
 			End if 
 		Else 
-			ALERT:C41("Please select a document to delete")
+			ALERT:C41(Localized string("AlertSelectDocumentToDelete"))
 		End if 
 End case 

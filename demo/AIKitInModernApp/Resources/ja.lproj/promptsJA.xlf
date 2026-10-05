@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+	<file datatype="plaintext" original="prompts" source-language="en" target-language="ja">
+		<body>
+			<trans-unit id="Prompt_Analyze" resname="Prompt_Analyze">
+				<source>You are analyzing a document. Extract ALL relevant information you can find:&#10;1. Document type (e.g., Invoice, Receipt, Contract, Letter, Report, etc.)&#10;2. Document title or subject&#10;3. Document date (format: YYYY-MM-DD)&#10;4. Main content summary (2-3 sentences)&#10;5. Key entities (names, organizations, amounts, dates, etc.)&#10;6. Any other relevant fields specific to this document type&#10;Return ONLY valid JSON. Include ALL fields you can extract.&#10;Required keys: documentType, title, documentDate, summary, keyEntities&#10;Add any other relevant fields based on document type.&#10;DO NOT include ```json or ``` markers.&#10;DO NOT include any text before or after the JSON.</source>
+				<target>あなたは文書を解析しています。見つけられる関連情報をすべて抽出してください：&#10;1. 文書の種類（例：請求書、領収書、契約書、手紙、報告書など）&#10;2. 文書のタイトルまたは件名&#10;3. 文書の日付（形式：YYYY-MM-DD）&#10;4. 主な内容の要約（2～3文）&#10;5. 主要なエンティティ（名前、組織、金額、日付など）&#10;6. この種類の文書に固有のその他の関連フィールド&#10;有効なJSONのみを返してください。抽出できるフィールドはすべて含めてください。&#10;必須キー：documentType, title, documentDate, summary, keyEntities&#10;文書の種類に応じて、その他の関連フィールドを追加してください。&#10;マーカー（```json や ```）は含めないでください。&#10;JSONの前後にテキストを含めないでください。</target>
+			</trans-unit>
+			<trans-unit id="Prompt_SystemAnalyst" resname="Prompt_SystemAnalyst">
+				<source>You are a business document analyst.</source>
+				<target>あなたはビジネス文書のアナリストです。</target>
+			</trans-unit>
+			<trans-unit id="Prompt_ChatIntro" resname="Prompt_ChatIntro">
+				<source>You are a helpful assistant that answers questions about business documents.</source>
+				<target>あなたはビジネス文書に関する質問に答える有能なアシスタントです。</target>
+			</trans-unit>
+			<trans-unit id="Prompt_ChatDocument" resname="Prompt_ChatDocument">
+				<source>You have access to the following document information:&#10;Document: {fileName} (Type: {type})&#10;&#10;Extracted Data:&#10;{context}</source>
+				<target>次の文書情報を参照できます：&#10;文書：{fileName}（種類：{type}）&#10;&#10;抽出データ：&#10;{context}</target>
+			</trans-unit>
+			<trans-unit id="Prompt_ChatRules" resname="Prompt_ChatRules">
+				<source>Answer questions based on this information. If information is not available, say so rather than making assumptions. Be concise and professional.</source>
+				<target>この情報に基づいて質問に答えてください。情報がない場合は、推測せずにその旨を伝えてください。簡潔かつ丁寧に回答してください。</target>
+			</trans-unit>
+			<trans-unit id="Prompt_Summary_Brief" resname="Prompt_Summary_Brief">
+				<source>Provide a 2-3 sentence summary of this document focusing on the most important information.&#10;&#10;Return as clean HTML with inline CSS styling. Use semantic tags and make it visually appealing.&#10;DO NOT include ```html or ``` markers.&#10;&#10;Document information:&#10;{context}</source>
+				<target>この文書について、最も重要な情報に焦点を当てて2～3文で要約してください。&#10;&#10;インラインCSSでスタイルを設定した、クリーンなHTMLとして返してください。セマンティックなタグを使用し、見やすく仕上げてください。&#10;マーカー（```html や ```）は含めないでください。&#10;&#10;文書の情報：&#10;{context}</target>
+			</trans-unit>
+			<trans-unit id="Prompt_Summary_Detailed" resname="Prompt_Summary_Detailed">
+				<source>Provide a comprehensive summary covering all key details.&#10;&#10;Return as clean HTML with inline CSS styling. Structure:&#10;- Use &lt;h3&gt; for section headers&#10;- Use &lt;ul&gt;&lt;li&gt; for bullet points&#10;- Use &lt;strong&gt; for emphasis&#10;- Use &lt;div style='margin:10px 0'&gt; for spacing&#10;DO NOT include ```html or ``` markers.&#10;&#10;Include sections for: Document Overview, Key Parties, Important Dates &amp; Amounts, Notable Items&#10;&#10;Document information:&#10;{context}</source>
+				<target>主要な詳細をすべて網羅した、包括的な要約を作成してください。&#10;&#10;インラインCSSでスタイルを設定した、クリーンなHTMLとして返してください。構成：&#10;- セクションの見出しには&lt;h3&gt;を使用します&#10;- 箇条書きには&lt;ul&gt;&lt;li&gt;を使用します&#10;- 強調には&lt;strong&gt;を使用します&#10;- 間隔には&lt;div style='margin:10px 0'&gt;を使用します&#10;マーカー（```html や ```）は含めないでください。&#10;&#10;次のセクションを含めてください：文書の概要、主な関係者、重要な日付と金額、注目すべき項目&#10;&#10;文書の情報：&#10;{context}</target>
+			</trans-unit>
+			<trans-unit id="Prompt_Summary_Executive" resname="Prompt_Summary_Executive">
+				<source>Provide an executive summary suitable for management review.&#10;&#10;Return as clean HTML with inline CSS styling. Structure:&#10;- Start with &lt;div style='background:#f0f9ff;padding:15px;border-left:4px solid #3b82f6;margin-bottom:15px'&gt; for bottom line&#10;- Use &lt;h3&gt; for section headers (Key Financials, Action Items)&#10;- Use colored badges for priorities: &lt;span style='background:#ef4444;color:white;padding:2px 8px;border-radius:4px;font-size:12px'&gt;HIGH&lt;/span&gt;&#10;- Keep it concise and action-oriented&#10;DO NOT include ```html or ``` markers.&#10;&#10;Document information:&#10;{context}</source>
+				<target>経営陣のレビューに適したエグゼクティブサマリーを作成してください。&#10;&#10;インラインCSSでスタイルを設定した、クリーンなHTMLとして返してください。構成：&#10;- 冒頭に結論を&lt;div style='background:#f0f9ff;padding:15px;border-left:4px solid #3b82f6;margin-bottom:15px'&gt;で示します&#10;- セクションの見出し（主要な財務情報、対応事項）には&lt;h3&gt;を使用します&#10;- 優先度には色付きのバッジを使用します：&lt;span style='background:#ef4444;color:white;padding:2px 8px;border-radius:4px;font-size:12px'&gt;高&lt;/span&gt;&#10;- 簡潔で、行動につながる内容にします&#10;マーカー（```html や ```）は含めないでください。&#10;&#10;文書の情報：&#10;{context}</target>
+			</trans-unit>
+			<trans-unit id="Prompt_Summary_KeyPoints" resname="Prompt_Summary_KeyPoints">
+				<source>Analyze this document and extract key points that require attention or action.&#10;&#10;Return as clean HTML with inline CSS. For each key point, create a card:&#10;&lt;div style='border:1px solid #e5e7eb;border-radius:8px;padding:12px;margin:10px 0;background:white'&gt;&#10;  &lt;div style='display:flex;justify-content:space-between;margin-bottom:8px'&gt;&#10;    &lt;strong&gt;[Description]&lt;/strong&gt;&#10;    &lt;span style='background:[color];color:white;padding:2px 8px;border-radius:4px;font-size:11px'&gt;[Priority]&lt;/span&gt;&#10;  &lt;/div&gt;&#10;  &lt;div style='color:#6b7280;font-size:13px'&gt;Type: [Financial/Deadline/Compliance/General]&lt;/div&gt;&#10;  &lt;div style='margin-top:8px;color:#374151'&gt;Action: [recommended action]&lt;/div&gt;&#10;&lt;/div&gt;&#10;DO NOT include ```html or ``` markers.&#10;&#10;Priority colors: High=#ef4444, Medium=#f59e0b, Low=#10b981&#10;&#10;Document data:&#10;{context}</source>
+				<target>この文書を解析し、注意または対応が必要な要点を抽出してください。&#10;&#10;インラインCSSを使用した、クリーンなHTMLとして返してください。要点ごとに次のカードを作成します：&#10;&lt;div style='border:1px solid #e5e7eb;border-radius:8px;padding:12px;margin:10px 0;background:white'&gt;&#10;  &lt;div style='display:flex;justify-content:space-between;margin-bottom:8px'&gt;&#10;    &lt;strong&gt;[説明]&lt;/strong&gt;&#10;    &lt;span style='background:[色];color:white;padding:2px 8px;border-radius:4px;font-size:11px'&gt;[優先度]&lt;/span&gt;&#10;  &lt;/div&gt;&#10;  &lt;div style='color:#6b7280;font-size:13px'&gt;種類：[財務/期限/コンプライアンス/一般]&lt;/div&gt;&#10;  &lt;div style='margin-top:8px;color:#374151'&gt;対応：[推奨される対応]&lt;/div&gt;&#10;&lt;/div&gt;&#10;マーカー（```html や ```）は含めないでください。&#10;&#10;優先度の色：高=#ef4444、中=#f59e0b、低=#10b981&#10;&#10;文書のデータ：&#10;{context}</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

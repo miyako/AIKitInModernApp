@@ -15,7 +15,7 @@ Case of
 			$timestamp:=String:C10(Current date:C33; Internal date short special:K1:4)+" "+String:C10(Current time:C178; HH MM:K7:2)
 			Form:C1466.chatMessages.push(New object:C1471("role"; "user"; "message"; $userMessage; "timestamp"; $timestamp))  // Add temporary "thinking" indicator with random variation
 			var $thinkingMessages : Collection
-			$thinkingMessages:=New collection:C1472("💭 Thinking..."; "🤔 Processing..."; "⚡ Analyzing..."; "🔍 Examining..."; "✨ Generating response...")
+			$thinkingMessages:=New collection:C1472(Localized string("Chat_Thinking1"); Localized string("Chat_Thinking2"); Localized string("Chat_Thinking3"); Localized string("Chat_Thinking4"); Localized string("Chat_Thinking5"))
 			var $randomThinking : Text
 			$randomThinking:=$thinkingMessages[Random:C100%$thinkingMessages.length]
 			Form:C1466.chatMessages.push(New object:C1471("role"; "assistant"; "message"; $randomThinking; "timestamp"; ""; "isTemporary"; True:C214))

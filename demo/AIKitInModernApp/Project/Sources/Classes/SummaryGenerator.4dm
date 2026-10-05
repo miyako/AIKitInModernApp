@@ -52,12 +52,12 @@ Function _validateDocumentData($doc : cs:C1710.DocumentEntity; $extData : cs:C17
 	$valid:=True:C214
 	
 	If ($doc=Null:C1517)
-		ALERT:C41("ERROR: Document not found!")
+		ALERT:C41(Localized string("AlertDocumentNotFound"))
 		$valid:=False:C215
 	End if 
 	
 	If ($extData=Null:C1517)
-		ALERT:C41("ERROR: No extracted data found for this document! Please analyze the document first.")
+		ALERT:C41(Localized string("AlertNoExtractedDataForDocument"))
 		$valid:=False:C215
 	End if 
 	return $valid
@@ -69,52 +69,14 @@ Function _buildSummaryPrompt($summaryType : Text; $extData : cs:C1710.ExtractedD
 	$context:=_buildDocumentContext($extData)
 	
 	If ($context="")
-		ALERT:C41("ERROR: Context is empty!")
+		ALERT:C41(Localized string("AlertContextEmpty"))
 		return 
 	End if 
 	
+	// One prompt per summary type (XLIFF: Prompt_Summary_<type>), in the UI language
 	Case of 
-		: ($summaryType="Brief")
-			$prompt:="Provide a 2-3 sentence summary of this document focusing on the most important information.\\n\\n"
-			$prompt:=$prompt+"Return as clean HTML with inline CSS styling. Use semantic tags and make it visually appealing.\\n"
-			$prompt:=$prompt+"DO NOT include ```html or ``` markers.\\n\\n"
-			$prompt:=$prompt+$context
-			
-		: ($summaryType="Detailed")
-			$prompt:="Provide a comprehensive summary covering all key details.\\n\\n"
-			$prompt:=$prompt+"Return as clean HTML with inline CSS styling. Structure:\\n"
-			$prompt:=$prompt+"- Use <h3> for section headers\\n"
-			$prompt:=$prompt+"- Use <ul><li> for bullet points\\n"
-			$prompt:=$prompt+"- Use <strong> for emphasis\\n"
-			$prompt:=$prompt+"- Use <div style='margin:10px 0'> for spacing\\n"
-			$prompt:=$prompt+"DO NOT include ```html or ``` markers.\\n\\n"
-			$prompt:=$prompt+"Include sections for: Document Overview, Key Parties, Important Dates & Amounts, Notable Items\\n\\n"
-			$prompt:=$prompt+"Document information:\\n"+$context
-			
-		: ($summaryType="Executive")
-			$prompt:="Provide an executive summary suitable for management review.\\n\\n"
-			$prompt:=$prompt+"Return as clean HTML with inline CSS styling. Structure:\\n"
-			$prompt:=$prompt+"- Start with <div style='background:#f0f9ff;padding:15px;border-left:4px solid #3b82f6;margin-bottom:15px'> for bottom line\\n"
-			$prompt:=$prompt+"- Use <h3> for section headers (Key Financials, Action Items)\\n"
-			$prompt:=$prompt+"- Use colored badges for priorities: <span style='background:#ef4444;color:white;padding:2px 8px;border-radius:4px;font-size:12px'>HIGH</span>\\n"
-			$prompt:=$prompt+"- Keep it concise and action-oriented\\n"
-			$prompt:=$prompt+"DO NOT include ```html or ``` markers.\\n\\n"
-			$prompt:=$prompt+"Document information:\\n"+$context
-			
-		: ($summaryType="KeyPoints")
-			$prompt:="Analyze this document and extract key points that require attention or action.\\n\\n"
-			$prompt:=$prompt+"Return as clean HTML with inline CSS. For each key point, create a card:\\n"
-			$prompt:=$prompt+"<div style='border:1px solid #e5e7eb;border-radius:8px;padding:12px;margin:10px 0;background:white'>\\n"
-			$prompt:=$prompt+"  <div style='display:flex;justify-content:space-between;margin-bottom:8px'>\\n"
-			$prompt:=$prompt+"    <strong>[Description]</strong>\\n"
-			$prompt:=$prompt+"    <span style='background:[color];color:white;padding:2px 8px;border-radius:4px;font-size:11px'>[Priority]</span>\\n"
-			$prompt:=$prompt+"  </div>\\n"
-			$prompt:=$prompt+"  <div style='color:#6b7280;font-size:13px'>Type: [Financial/Deadline/Compliance/General]</div>\\n"
-			$prompt:=$prompt+"  <div style='margin-top:8px;color:#374151'>Action: [recommended action]</div>\\n"
-			$prompt:=$prompt+"</div>\\n"
-			$prompt:=$prompt+"DO NOT include ```html or ``` markers.\\n\\n"
-			$prompt:=$prompt+"Priority colors: High=#ef4444, Medium=#f59e0b, Low=#10b981\\n\\n"
-			$prompt:=$prompt+"Document data:\\n"+$context
+		: ($summaryType="Brief") | ($summaryType="Detailed") | ($summaryType="Executive") | ($summaryType="KeyPoints")
+			$prompt:=Replace string:C233(Localized string("Prompt_Summary_"+$summaryType); "{context}"; $context)
 	End case 
 	
 	return $prompt
@@ -125,7 +87,7 @@ Function _generateWithAI($prompt : Text)->$result : Object
 	var $params : Object
 	
 	$messages:=New collection:C1472
-	$messages.push(New object:C1471("role"; "system"; "content"; "You are a business document analyst."))
+	$messages.push(New object:C1471("role"; "system"; "content"; Localized string("Prompt_SystemAnalyst")))
 	$messages.push(New object:C1471("role"; "user"; "content"; $prompt))
 	
 	$params:={\

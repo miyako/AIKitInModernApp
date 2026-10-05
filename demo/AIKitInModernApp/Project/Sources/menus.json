@@ -28,11 +28,11 @@
 					"action": "quit"
 				},
 				{
-					"title": "Document Manager",
+					"title": ":xliff:MenuItemDocumentManager",
 					"method": "ShowDocumentManager"
 				},
 				{
-					"title": "AI Configuration",
+					"title": ":xliff:MenuItemAIConfiguration",
 					"method": "ShowAIConfiguration"
 				}
 			]

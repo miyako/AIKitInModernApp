@@ -18,7 +18,7 @@ var $newData : Object
 $modified:=False:C215
 
 If ($extData=Null:C1517)
-	ALERT:C41("No extracted data to edit")
+	ALERT:C41(Localized string("AlertNoExtractedDataToEdit"))
 	return 
 End if 
 

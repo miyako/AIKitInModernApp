@@ -51,13 +51,13 @@ Function sendMessage($docID : Text; $userMessage : Text)->$response : Object
 				$response.success:=True:C214
 				$response.message:=$result.choice.message.content
 			Else 
-				$response.error:=$result.errors.length>0 ? $result.errors[0] : "Unknown error"
+				$response.error:=$result.errors.length>0 ? $result.errors[0] : Localized string("Error_Unknown")
 			End if 
 		Else 
-			$response.error:="Invalid conversation history"
+			$response.error:=Localized string("Error_InvalidHistory")
 		End if 
 	Else 
-		$response.error:="Failed to create conversation"
+		$response.error:=Localized string("Error_CreateConversation")
 	End if 
 	
 	return $response
@@ -98,21 +98,18 @@ Function _buildSystemMessage($docID : Text)->$systemMessage : Text
 	var $doc : cs:C1710.DocumentEntity
 	var $extData : cs:C1710.ExtractedDataEntity
 	
-	$systemMessage:="You are a helpful assistant that answers questions about business documents. "
+	$systemMessage:=Localized string("Prompt_ChatIntro")+"\n"
 	
 	If ($docID#"")
 		$doc:=ds:C1482.Document.query("UUID = :1"; $docID).first()
 		$extData:=ds:C1482.ExtractedData.query("documentID = :1"; $docID).first()
 		
 		If ($doc#Null:C1517) & ($extData#Null:C1517)
-			$systemMessage:=$systemMessage+"You have access to the following document information:\\n\\n"
-			$systemMessage:=$systemMessage+"Document: "+$doc.fileName+" (Type: "+$doc.documentType+")\\n\\n"
-			$systemMessage:=$systemMessage+"Extracted Data:\\n"+_buildDocumentContext($extData)+"\\n"
+			$systemMessage:=$systemMessage+Replace string:C233(Replace string:C233(Replace string:C233(Localized string("Prompt_ChatDocument"); "{fileName}"; $doc.fileName); "{type}"; $doc.documentType); "{context}"; _buildDocumentContext($extData))+"\n\n"
 		End if 
 	End if 
 	
-	$systemMessage:=$systemMessage+"Answer questions based on this information. If information is not available, "
-	$systemMessage:=$systemMessage+"say so rather than making assumptions. Be concise and professional."
+	$systemMessage:=$systemMessage+Localized string("Prompt_ChatRules")
 	
 	return $systemMessage
 	

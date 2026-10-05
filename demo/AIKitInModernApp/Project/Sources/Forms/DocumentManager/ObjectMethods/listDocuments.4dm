@@ -18,7 +18,10 @@ Case of
 			Form:C1466.selectedDoc:=ds:C1482.Document.get($docID)
 			
 			// Reset summary type to Brief
-			Form:C1466.summaryType:="Brief"  // Display document in preview area
+			Form:C1466.summaryType:="Brief"
+			Form:C1466.summaryTypeList.index:=0
+			
+			// Display document in preview area
 			_displayDocumentPreview(Form:C1466.selectedDoc)
 			
 			// Load associated data
@@ -34,10 +37,10 @@ Case of
 				// Check if document is currently being processed
 				If (Form:C1466.processingDocID=Form:C1466.selectedDoc.UUID)
 					// Show processing state
-					$displayExtracted:="🔄 Processing document asynchronously...\n\nPlease wait while the AI analyzes your document."
+					$displayExtracted:=Localized string("Extracted_Processing")
 				Else 
 					// no extracted data and not processing
-					$displayExtracted:="No extracted data available.\n\nPlease click 'Analyze Selected' to extract data from this document."
+					$displayExtracted:=Localized string("Extracted_ClickAnalyze")
 				End if 
 			End if 
 			
@@ -57,13 +60,13 @@ Case of
 				If ((Form:C1466.generatingSummary) & (Form:C1466.generatingSummaryDoc=Form:C1466.selectedDoc.UUID))
 					// Show generating state with specific summary type
 					var $loadingHTML : Text
-					$loadingHTML:="<div style='text-align:center;padding:40px;color:#6b7280'>⏳ Generating "+Form:C1466.generatingSummaryType+" summary...</div>"
+					$loadingHTML:="<div style='text-align:center;padding:40px;color:#6b7280'>"+Replace string:C233(Localized string("Summary_Generating"); "{type}"; Localized string("SummaryType_"+Form:C1466.generatingSummaryType))+"</div>"
 					$loadingHTML:=_renderSummaryHTML($loadingHTML)
 					WA SET PAGE CONTENT:C1037(*; "summaryText"; $loadingHTML; "")
 				Else 
 					// Clear web area if no summary
 					var $emptyHTML : Text
-					$emptyHTML:=_renderSummaryHTML("<div style='color:#6b7280;text-align:center;padding:40px'>No summary available. Click Generate to create one.</div>")
+					$emptyHTML:=_renderSummaryHTML("<div style='color:#6b7280;text-align:center;padding:40px'>"+Localized string("Summary_NoneAvailable")+"</div>")
 					WA SET PAGE CONTENT:C1037(*; "summaryText"; $emptyHTML; "")
 				End if 
 			End if 
@@ -99,16 +102,15 @@ Case of
 				If ($needUpdate)
 					$extData:=ds:C1482.ExtractedData.query("documentID = :1"; $doc.UUID).first()
 					
-					$systemMessage:="You are a helpful assistant that answers questions about business documents. "
+					$systemMessage:=Localized string("Prompt_ChatIntro")+"\n"
 					
 					If ($extData#Null:C1517)
-						$systemMessage:=$systemMessage+"You have access to the following document information:\\n\\n"
-						$systemMessage:=$systemMessage+"Document: "+$doc.fileName+" (Type: "+$doc.documentType+")\\n\\n"
-						$systemMessage:=$systemMessage+"Extracted Data:\\n"+_buildDocumentContext($extData)+"\\n\\n"
+						$systemMessage:=$systemMessage+Replace string:C233(Replace string:C233(Replace string:C233(Localized string("Prompt_ChatDocument"); "{fileName}"; $doc.fileName); "{type}"; $doc.documentType); "{context}"; _buildDocumentContext($extData))+"\n\n"
 					End if 
 					
-					$systemMessage:=$systemMessage+"Answer questions based on this information. If information is not available, "
-					$systemMessage:=$systemMessage+"say so rather than making assumptions. Be concise and professional."  // Update the system message in history
+					$systemMessage:=$systemMessage+Localized string("Prompt_ChatRules")
+					
+					// Update the system message in history
 					$msgHistory:=JSON Parse:C1218($conv.messageHistory)
 					If ($msgHistory#Null:C1517) & ($msgHistory.length>0)
 						// Update first message if it's a system message

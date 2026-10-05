@@ -1,6 +1,6 @@
 Case of 
 	: (Form:C1466.defaultModel="")
-		ALERT:C41("Please fill the mandatory fields")
+		ALERT:C41(Localized string("AlertMandatoryFields"))
 	Else 
 		// DIALOG(*) does not wait for the window to close: save here, then close
 		// The API key is not saved here: it is set in Project/Sources/AIProviders.json
@@ -15,7 +15,7 @@ Case of
 			$success:=$aiconfig._saveToConfigFile()
 		End use 
 		If ($success)
-			ALERT:C41("Configuration updated successfully")
+			ALERT:C41(Localized string("AlertConfigSaved"))
 		End if 
 		ACCEPT:C269
 End case 

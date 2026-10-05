@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+	<file datatype="plaintext" original="AIConfiguration" source-language="en" target-language="ja">
+		<body>
+			<trans-unit id="AIConfig_WindowTitle" resname="AIConfig_WindowTitle">
+				<source>AI Configuration</source>
+				<target>AI設定</target>
+			</trans-unit>
+			<trans-unit id="AIConfig_Provider" resname="AIConfig_Provider">
+				<source>Provider:</source>
+				<target>プロバイダー：</target>
+			</trans-unit>
+			<trans-unit id="AIConfig_APIKey" resname="AIConfig_APIKey">
+				<source>API Key:</source>
+				<target>APIキー：</target>
+			</trans-unit>
+			<trans-unit id="AIConfig_BaseURL" resname="AIConfig_BaseURL">
+				<source>Base URL:</source>
+				<target>ベースURL：</target>
+			</trans-unit>
+			<trans-unit id="AIConfig_DefaultModel" resname="AIConfig_DefaultModel">
+				<source>Default Model*:</source>
+				<target>デフォルトモデル*：</target>
+			</trans-unit>
+			<trans-unit id="AIConfig_VisionModel" resname="AIConfig_VisionModel">
+				<source>Vision Model:</source>
+				<target>ビジョンモデル：</target>
+			</trans-unit>
+			<trans-unit id="AIConfig_MaxTokens" resname="AIConfig_MaxTokens">
+				<source>Max Tokens:</source>
+				<target>最大トークン数：</target>
+			</trans-unit>
+			<trans-unit id="AIConfig_Temperature" resname="AIConfig_Temperature">
+				<source>Temperature:</source>
+				<target>温度：</target>
+			</trans-unit>
+			<trans-unit id="AIConfig_Mandatory" resname="AIConfig_Mandatory">
+				<source>* : Mandatory field</source>
+				<target>*：必須項目</target>
+			</trans-unit>
+			<trans-unit id="AIConfig_Save" resname="AIConfig_Save">
+				<source>Save</source>
+				<target>保存</target>
+			</trans-unit>
+			<trans-unit id="AIConfig_PlaceholderDefaultModel" resname="AIConfig_PlaceholderDefaultModel">
+				<source>eg. gpt-4o-mini</source>
+				<target>例：gpt-4o-mini</target>
+			</trans-unit>
+			<trans-unit id="AIConfig_PlaceholderVisionModel" resname="AIConfig_PlaceholderVisionModel">
+				<source>eg. gpt-4o</source>
+				<target>例：gpt-4o</target>
+			</trans-unit>
+			<trans-unit id="AIConfig_PlaceholderMaxTokens" resname="AIConfig_PlaceholderMaxTokens">
+				<source>eg. 1000</source>
+				<target>例：1000</target>
+			</trans-unit>
+			<trans-unit id="AIConfig_PlaceholderTemperature" resname="AIConfig_PlaceholderTemperature">
+				<source>eg. 0.3</source>
+				<target>例：0.3</target>
+			</trans-unit>
+			<trans-unit id="AIConfig_KeyNotSet" resname="AIConfig_KeyNotSet">
+				<source>Not set: edit Project/Sources/AIProviders.json</source>
+				<target>未設定：Project/Sources/AIProviders.jsonを編集してください</target>
+			</trans-unit>
+			<trans-unit id="AIConfig_KeySet" resname="AIConfig_KeySet">
+				<source>Set in Project/Sources/AIProviders.json</source>
+				<target>Project/Sources/AIProviders.jsonで設定済み</target>
+			</trans-unit>
+			<trans-unit id="AlertMandatoryFields" resname="AlertMandatoryFields">
+				<source>Please fill the mandatory fields</source>
+				<target>必須項目を入力してください</target>
+			</trans-unit>
+			<trans-unit id="AlertConfigSaved" resname="AlertConfigSaved">
+				<source>Configuration updated successfully</source>
+				<target>設定を更新しました</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
