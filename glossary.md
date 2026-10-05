@@ -64,8 +64,7 @@ Full-width `（）` and `：` in prose. First occurrence of a technical term: �
 | document (business document) | 文書 / ビジネス文書 | ドキュメント only in UI names |
 | extracted data | 抽出データ | |
 | summary | 要約 | |
-| Brief / Detailed / Executive / Key Points (summary types) | 簡潔 / 詳細 / エグゼクティブ / 要点 | UI choice list labels (Phase 5) |
-| executive summary | エグゼクティブサマリー | |
+| executive summary | 重役向けの要約 | no katakana |
 | conversation / chat | 会話 / チャット | |
 | conversation history | 会話履歴 | |
 | configuration | 設定 | |
@@ -78,7 +77,6 @@ Full-width `（）` and `：` in prose. First occurrence of a technical term: �
 | polling | ポーリング | |
 | rate limit | レート制限 | |
 | data anonymization | データの匿名化 | |
-| status: Uploaded / Processing / Processed / Error | アップロード済み / 処理中 / 処理済み / エラー | display labels (Phase 5) |
 
 ## UI labels in the demo (target strings for the Phase 5 XLIFF)
 
@@ -98,7 +96,7 @@ Full-width `（）` and `：` in prose. First occurrence of a technical term: �
 | Extracted Data | 抽出データ | |
 | Documents | 文書 | list label |
 | Edit / Cancel / Delete / OK | 編集 / キャンセル / 削除 / OK | 4D built-in Common* XLIFF |
-| Brief / Detailed / Executive / KeyPoints | 簡潔 / 詳細 / エグゼクティブ / 要点 | summary types; stored codes stay in English |
+| Brief / Detailed / Executive / KeyPoints | 簡潔 / 詳細 / 重役 / 要点 | summary types; stored codes stay in English |
 | Uploaded / Processing / Processed / Error | アップロード済み / 処理中 / 解析済み / エラー | document status (`statusLabel`); stored codes stay in English |
 | File Name / Type / Upload Date / Status | ファイル名 / 種類 / アップロード日 / ステータス | list box headers |
 | Edit Extracted Data - JSON Format | 抽出データの編集 - JSON形式 | dialog title |

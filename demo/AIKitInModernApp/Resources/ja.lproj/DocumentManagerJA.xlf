@@ -76,7 +76,7 @@
 			</trans-unit>
 			<trans-unit id="SummaryType_Executive" resname="SummaryType_Executive">
 				<source>Executive</source>
-				<target>エグゼクティブ</target>
+				<target>重役</target>
 			</trans-unit>
 			<trans-unit id="SummaryType_KeyPoints" resname="SummaryType_KeyPoints">
 				<source>KeyPoints</source>
