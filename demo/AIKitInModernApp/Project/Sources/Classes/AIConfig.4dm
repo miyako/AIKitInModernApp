@@ -21,9 +21,8 @@ Function loadConfiguration()
 	
 	$config:=This:C1470._loadFromConfigFile()
 	
-	If ($config=Null:C1517)
-		ShowAIConfiguration
-	Else 
+	// No configuration file: On Startup opens the AI Configuration dialog
+	If ($config#Null:C1517)
 		This:C1470.provider:=$config.provider
 		This:C1470.apiKey:=$config.apiKey
 		This:C1470.baseURL:=$config.baseURL
