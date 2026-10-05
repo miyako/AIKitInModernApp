@@ -18,7 +18,7 @@
    "box": [
     21,
     39,
-    50,
+    56,
     14
    ],
    "align": "left",
@@ -106,7 +106,8 @@
     8
    ],
    "align": "center",
-   "weight": "bold"
+   "weight": "bold",
+   "size": 12
   },
   {
    "box": [
@@ -155,7 +156,8 @@
     8
    ],
    "align": "center",
-   "weight": "bold"
+   "weight": "bold",
+   "size": 12
   },
   {
    "box": [

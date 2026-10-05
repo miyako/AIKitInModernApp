@@ -120,7 +120,8 @@
     67,
     25
    ],
-   "align": "center"
+   "align": "center",
+   "dy": 14
   },
   {
    "box": [
@@ -129,7 +130,8 @@
     86,
     21
    ],
-   "align": "center"
+   "align": "center",
+   "erase_pad": 1
   },
   {
    "box": [
