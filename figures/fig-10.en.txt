@@ -1,0 +1,24 @@
+Document Processing Workflow
+Upload Document
+Status: Uploaded
+Analyze Document (AI)
+Status: Processing
+Worker Process
+Non-blocking UI
+Timer polling for updates
+Extract & Display Data
+Status: Processed
+GPT-4o Vision for extraction
+Structured data output
+Generate Summary
+Optional: Brief/Detailed/Executive
+GPT-4o-mini (cost-effective)
+4 summary types available
+Chat with Document
+Optional: Ask questions
+Context-aware responses
+Full document context
+Legend:
+User Action
+AI Processing
+Complete

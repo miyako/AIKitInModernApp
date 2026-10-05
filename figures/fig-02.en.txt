@@ -1,0 +1,22 @@
+AIConfig - Configuration Loading Pipeline
+Legend:
+Process
+File Processing
+Database
+Configuration UI
+Decision
+Application Start
+loadConfiguration()
+_loadFromConfigFile()
+No
+ShowAIConfiguration
+$config ≠
+Null?
+Display config dialog
+Yes
+Map Properties
+Set class properties
+Save Configuration
+_saveToConfigFile()
+Ready for
+AI Operations

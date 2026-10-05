@@ -52,7 +52,7 @@ h4 { font-size: 11pt; margin: 1.1em 0 0.4em; }
 .toc ol { list-style: none; padding: 0; margin: 0; }
 .toc li { margin: 0.15em 0; }
 .toc li.l3 { padding-left: 1.2em; }
-.toc li.l4 { padding-left: 2.4em; }
+.toc li.l4 { display: none; }  /* the original TOC lists two levels */
 .toc a { display: flex; color: inherit; text-decoration: none; }
 .toc .t { flex: 0 1 auto; }
 .toc a::after {
@@ -98,7 +98,21 @@ figcaption {
 }
 
 /* Tables */
-table { border-collapse: collapse; margin: 0.4em auto 1em; font-size: 10pt; }
-th, td { border-bottom: 1px solid #ccc; padding: 0.25em 1.2em; }
-th { text-align: left; border-bottom: 1.5px solid #888; }
-td:last-child, th:last-child { text-align: right; }
+table { border-collapse: collapse; margin: 0.4em auto 1em; font-size: 9.5pt; width: 100%; }
+th, td { border-bottom: 1px solid #ccc; padding: 0.3em 0.6em; text-align: left; vertical-align: top; }
+th { border-bottom: 1.5px solid #888; }
+th:first-child { width: 20%; }
+th:nth-child(2) { width: 30%; }
+td code {
+  font-family: "SF Mono", Menlo, Monaco, "DejaVu Sans Mono", "Noto Sans Mono CJK JP", monospace;
+  font-size: 8pt;
+  white-space: pre-wrap;
+}
+
+/* Footnote text placed after the paragraph that references it */
+.footnote { font-size: 0.85em; border-top: 1px solid #ccc; padding-top: 4pt; }
+
+/* Notes: light-blue highlight as in the original */
+.note { background: #deeaf6; padding: 0.3em 0.6em; }
+/* CJK fonts have no italics; Chrome's synthetic oblique also overflows the margin */
+html:lang(ja) em { font-style: normal; }

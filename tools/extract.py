@@ -18,6 +18,7 @@ import sys
 from pathlib import Path
 
 import pymupdf
+from PIL import Image
 
 import config
 
@@ -302,7 +303,13 @@ def extract_figures(doc, figures, force):
             smask = doc.xref_get_key(fig["xref"], "SMask")
             if smask[0] == "xref":
                 pix = pymupdf.Pixmap(pix, pymupdf.Pixmap(doc, int(smask[1].split()[0])))
-            pix.save(png)
+            if pix.alpha:  # composite onto white; tesseract reads transparent pixels as black
+                img = Image.frombytes("RGBA", (pix.width, pix.height), pix.samples)
+                flat = Image.new("RGB", img.size, "white")
+                flat.paste(img, mask=img.getchannel("A"))
+                flat.save(png)
+            else:
+                pix.save(png)
             print(f"wrote: {png.relative_to(ROOT)}")
         layout_path = figdir / "layout" / f"{name}.json"
         if force or not layout_path.exists():
