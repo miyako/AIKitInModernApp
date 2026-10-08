@@ -4,5 +4,7 @@
  "width_pt": 467.9,
  "localize": false,
  "$comment": "Composite of the three summary screenshots placed side by side on p15",
- "items": []
+ "items": [],
+ "replace": "fig-05-ja.png",
+ "$comment_ja": "fig-05-ja.png = fig-05-a/b/c.png flattened on white, side by side with 30 px gaps (簡潔, 要点, 詳細)"
 }
