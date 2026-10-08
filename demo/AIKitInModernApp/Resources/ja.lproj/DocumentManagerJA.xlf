@@ -20,7 +20,7 @@
 			</trans-unit>
 			<trans-unit id="DocMgr_ColUploadDate" resname="DocMgr_ColUploadDate">
 				<source>Upload Date</source>
-				<target>アップロード日</target>
+				<target>登録日</target>
 			</trans-unit>
 			<trans-unit id="DocMgr_ColStatus" resname="DocMgr_ColStatus">
 				<source>Status</source>

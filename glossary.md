@@ -98,7 +98,7 @@ Full-width `（）` and `：` in prose. First occurrence of a technical term: �
 | Edit / Cancel / Delete / OK | 編集 / キャンセル / 削除 / OK | 4D built-in Common* XLIFF |
 | Brief / Detailed / Executive / KeyPoints | 簡潔 / 詳細 / 重役 / 要点 | summary types; stored codes stay in English |
 | Uploaded / Processing / Processed / Error | アップロード済み / 処理中 / 解析済み / エラー | document status (`statusLabel`); stored codes stay in English |
-| File Name / Type / Upload Date / Status | ファイル名 / 種類 / アップロード日 / ステータス | list box headers |
+| File Name / Type / Upload Date / Status | ファイル名 / 種類 / 登録日 / ステータス | list box headers |
 | Edit Extracted Data - JSON Format | 抽出データの編集 - JSON形式 | dialog title |
 | Provider / API Key / Base URL | プロバイダー / APIキー / ベースURL | AI Configuration |
 | Default Model / Vision Model / Max Tokens / Temperature | デフォルトモデル / ビジョンモデル / 最大トークン数 / 温度 | AI Configuration |
