@@ -285,28 +285,30 @@ $aiConfig:=cs.AIConfig.me  // Initialize singleton and load configuration
 
 #### プロンプトエンジニアリング
 
-文書の解析に使用しているプロンプトは次のとおりです：
+文書の解析に使用しているプロンプトは次のとおりです（日本語版のデモでは、すべてのプロンプトの最後に、応答の言語を指定する1行を追加しています。プロンプト自体は英語のままです）：
 
 ```text
-あなたは文書を解析しています。見つけられる関連情報をすべて抽出してください：
-1. 文書の種類（例：請求書、領収書、契約書、手紙、報告書など）
-2. 文書のタイトルまたは件名
-3. 文書の日付（形式：YYYY-MM-DD）
-4. 主な内容の要約（2～3文）
-5. 主要なエンティティ（名前、組織、金額、日付など）
-6. この種類の文書に固有のその他の関連フィールド
-有効なJSONのみを返してください。抽出できるフィールドはすべて含めてください。
-必須キー：documentType, title, documentDate, summary, keyEntities
-文書の種類に応じて、その他の関連フィールドを追加してください。
-マーカー（```json や ```）は含めないでください。
-JSONの前後にテキストを含めないでください。
+You are analyzing a document. Extract ALL relevant information you can find:
+1. Document type (e.g., Invoice, Receipt, Contract, Letter, Report, etc.)
+2. Document title or subject
+3. Document date (format: YYYY-MM-DD)
+4. Main content summary (2-3 sentences)
+5. Key entities (names, organizations, amounts, dates, etc.)
+6. Any other relevant fields specific to this document type
+Return ONLY valid JSON. Include ALL fields you can extract.
+Required keys: documentType, title, documentDate, summary, keyEntities
+Add any other relevant fields based on document type.
+DO NOT include ```json or ``` markers.
+DO NOT include any text before or after the JSON.
+
+Write all human-readable text in Japanese. Keep JSON keys, HTML tags and CSS unchanged.
 ```
 
 #### プロンプト設計の原則
 
 - 明確な構造：抽出する項目を番号付きリストで示します
 - 形式の指定：日付を（YYYY-MM-DD）と指定することで一貫性を確保します
-- 柔軟性：「その他の関連フィールド」により、文書の種類に応じた抽出ができます
+- 柔軟性：「Any other relevant fields」（その他の関連フィールド）により、文書の種類に応じた抽出ができます
 - ゼロショット学習：例を示さなくても、さまざまな種類の文書に対応できます
 - 出力の制約：Markdownや余分なテキストを明示的に禁止します
 
@@ -381,12 +383,14 @@ Function _analyzeDocumentWithAI($file : 4D.File; $prompt : Text) -> $result : Ob
 #### 共通のプロンプトパターン
 
 ```text
-[タスクの説明]
+[Task description]
 
-インラインCSSでスタイルを設定した、クリーンなHTMLとして返してください。[具体的な構造]
-マーカー（```html や ```）は含めないでください。
+Return as clean HTML with inline CSS styling. [Specific structure]
+DO NOT include ```html or ``` markers.
 
-文書の情報：[抽出データからのコンテキスト]
+Document information: [Context from extracted data]
+
+Write all human-readable text in Japanese. Keep JSON keys, HTML tags and CSS unchanged.
 ```
 
 #### AIの呼び出し
@@ -412,7 +416,7 @@ Function _generateWithAI($prompt : Text)->$result : Object
 
 **設定**
 
-- システムロール：「あなたはビジネス文書のアナリストです。」：専門的なコンテキストを設定します
+- システムロール：「You are a business document analyst.」（ビジネス文書のアナリスト）：専門的なコンテキストを設定します
 - SUMMARY_MAX_TOKENS：800：詳細な要約にも十分な長さです
 - SUMMARY_TEMPERATURE：0.3：一貫性と自然な文章とのバランスを取ります
 
@@ -449,22 +453,23 @@ Function _generateWithAI($prompt : Text)->$result : Object
 システムメッセージは、AIに文書のコンテキストを提供します：
 
 ```text
-あなたはビジネス文書に関する質問に答える有能なアシスタントです。
-次の文書情報を参照できます：
-文書：[ファイル名]（種類：[種類]）
+You are a helpful assistant that answers questions about business documents.
+You have access to the following document information:
+Document: [filename] (Type: [type])
 
-抽出データ：
-[BuildDocumentContext()による文書の全コンテキスト]
+Extracted Data:
+[Complete document context from BuildDocumentContext()]
 
-この情報に基づいて質問に答えてください。情報がない場合は、
-推測せずにその旨を伝えてください。簡潔かつ丁寧に回答してください。
+Answer questions based on this information. If information is not available,
+say so rather than making assumptions. Be concise and professional.
+Write all human-readable text in Japanese. Keep JSON keys, HTML tags and CSS unchanged.
 ```
 
 これらの指示はなぜ重要なのでしょうか？
 
 - AIは、特定の文書を扱っていることを認識します
 - 抽出されたすべてのデータに最初からアクセスできます
-- ハルシネーション<sup>1</sup>を避けるよう明示的に指示されています（「推測せずにその旨を伝えてください」）
+- ハルシネーション<sup>1</sup>を避けるよう明示的に指示されています（「say so rather than making assumptions」）
 - 丁寧な口調が保たれます
 
 例：チャットアシスタントが文書と関係のない質問を受けた場合、AIはモデルがその情報を知っていても回答を断ります。次のように、システムプロンプトで文書に関する質問にのみ答えるよう明確に指示しているためです：

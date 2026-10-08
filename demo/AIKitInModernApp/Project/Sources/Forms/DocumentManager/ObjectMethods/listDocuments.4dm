@@ -108,7 +108,7 @@ Case of
 						$systemMessage:=$systemMessage+Replace string:C233(Replace string:C233(Replace string:C233(Localized string("Prompt_ChatDocument"); "{fileName}"; $doc.fileName); "{type}"; $doc.documentType); "{context}"; _buildDocumentContext($extData))+"\n\n"
 					End if 
 					
-					$systemMessage:=$systemMessage+Localized string("Prompt_ChatRules")
+					$systemMessage:=$systemMessage+Localized string("Prompt_ChatRules")+"\n"+Localized string("Prompt_ResponseLanguage")
 					
 					// Update the system message in history
 					$msgHistory:=JSON Parse:C1218($conv.messageHistory)

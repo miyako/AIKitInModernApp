@@ -146,8 +146,8 @@ Function _prepareDocumentFile($doc : cs:C1710.DocumentEntity)->$file : 4D:C1709.
 	
 	
 Function _buildExtractionPrompt()->$prompt : Text
-	// Prompt in the UI language (XLIFF: Prompt_Analyze); the JSON keys stay in English
-	$prompt:=Localized string("Prompt_Analyze")
+	// English prompt (XLIFF: Prompt_Analyze) + a line asking for answers in the UI language
+	$prompt:=Localized string("Prompt_Analyze")+"\n\n"+Localized string("Prompt_ResponseLanguage")
 	
 	return $prompt
 	

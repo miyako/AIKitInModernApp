@@ -109,7 +109,7 @@ Function _buildSystemMessage($docID : Text)->$systemMessage : Text
 		End if 
 	End if 
 	
-	$systemMessage:=$systemMessage+Localized string("Prompt_ChatRules")
+	$systemMessage:=$systemMessage+Localized string("Prompt_ChatRules")+"\n"+Localized string("Prompt_ResponseLanguage")
 	
 	return $systemMessage
 	

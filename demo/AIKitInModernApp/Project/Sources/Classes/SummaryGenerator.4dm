@@ -73,10 +73,10 @@ Function _buildSummaryPrompt($summaryType : Text; $extData : cs:C1710.ExtractedD
 		return 
 	End if 
 	
-	// One prompt per summary type (XLIFF: Prompt_Summary_<type>), in the UI language
+	// English prompt per summary type (XLIFF: Prompt_Summary_<type>) + a line asking for answers in the UI language
 	Case of 
 		: ($summaryType="Brief") | ($summaryType="Detailed") | ($summaryType="Executive") | ($summaryType="KeyPoints")
-			$prompt:=Replace string:C233(Localized string("Prompt_Summary_"+$summaryType); "{context}"; $context)
+			$prompt:=Replace string:C233(Localized string("Prompt_Summary_"+$summaryType); "{context}"; $context)+"\n\n"+Localized string("Prompt_ResponseLanguage")
 	End case 
 	
 	return $prompt

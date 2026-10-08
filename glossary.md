@@ -104,18 +104,12 @@ Full-width `（）` and `：` in prose. First occurrence of a technical term: �
 | Default Model / Vision Model / Max Tokens / Temperature | デフォルトモデル / ビジョンモデル / 最大トークン数 / 温度 | AI Configuration |
 | You / Assistant | あなた / アシスタント | chat roles |
 
-## AI prompts (target strings for the Phase 5 XLIFF)
+## AI prompts
 
-The full prompts are in `demo/AIKitInModernApp/Resources/<lang>.lproj/prompts<LANG>.xlf` (IDs `Prompt_*`).
-
-The ```text blocks in `src/ja.md` show these prompts; keep them identical to the XLIFF targets.
-JSON keys (`documentType`, `title`, `documentDate`, `summary`, `keyEntities`) stay in English: the code reads them.
-
-| English | 日本語 |
-|---|---|
-| You are a business document analyst. | あなたはビジネス文書のアナリストです。 |
-| You are a helpful assistant that answers questions about business documents. | あなたはビジネス文書に関する質問に答える有能なアシスタントです。 |
-| Answer questions based on this information. If information is not available, say so rather than making assumptions. Be concise and professional. | この情報に基づいて質問に答えてください。情報がない場合は、推測せずにその旨を伝えてください。簡潔かつ丁寧に回答してください。 |
+The prompts stay in English in every language (`Prompt_*` in `demo/AIKitInModernApp/Resources/<lang>.lproj/prompts<LANG>.xlf`).
+Each prompt ends with `Prompt_ResponseLanguage`, which asks for the answer in the UI language:
+"Write all human-readable text in Japanese. Keep JSON keys, HTML tags and CSS unchanged."
+The ```text blocks in `src/ja.md` show the English prompts as the demo sends them, with that line.
 
 ## Proper nouns in examples
 
