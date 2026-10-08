@@ -10,8 +10,8 @@ loadConfiguration()
 _loadFromConfigFile()
 いいえ
 ShowAIConfiguration
-$config ≠
-Null?
+APIキー
+あり？
 設定ダイアログを表示
 はい
 プロパティをマッピング
