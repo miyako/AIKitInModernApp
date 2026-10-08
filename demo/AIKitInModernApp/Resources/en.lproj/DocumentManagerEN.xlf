@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+	<file datatype="plaintext" original="DocumentManager" source-language="en" target-language="en">
+		<body>
+			<trans-unit id="DocMgr_WindowTitle" resname="DocMgr_WindowTitle">
+				<source>Document Manager</source>
+				<target>Document Manager</target>
+			</trans-unit>
+			<trans-unit id="DocMgr_Title" resname="DocMgr_Title">
+				<source>AI Document Manager</source>
+				<target>AI Document Manager</target>
+			</trans-unit>
+			<trans-unit id="DocMgr_ColFileName" resname="DocMgr_ColFileName">
+				<source>File Name</source>
+				<target>File Name</target>
+			</trans-unit>
+			<trans-unit id="DocMgr_ColType" resname="DocMgr_ColType">
+				<source>Type</source>
+				<target>Type</target>
+			</trans-unit>
+			<trans-unit id="DocMgr_ColUploadDate" resname="DocMgr_ColUploadDate">
+				<source>Upload Date</source>
+				<target>Upload Date</target>
+			</trans-unit>
+			<trans-unit id="DocMgr_ColStatus" resname="DocMgr_ColStatus">
+				<source>Status</source>
+				<target>Status</target>
+			</trans-unit>
+			<trans-unit id="DocMgr_Upload" resname="DocMgr_Upload">
+				<source>Upload Document</source>
+				<target>Upload Document</target>
+			</trans-unit>
+			<trans-unit id="DocMgr_Documents" resname="DocMgr_Documents">
+				<source>Documents</source>
+				<target>Documents</target>
+			</trans-unit>
+			<trans-unit id="DocMgr_Analyze" resname="DocMgr_Analyze">
+				<source>Analyze Selected</source>
+				<target>Analyze Selected</target>
+			</trans-unit>
+			<trans-unit id="DocMgr_Delete" resname="DocMgr_Delete">
+				<source>Delete Document</source>
+				<target>Delete Document</target>
+			</trans-unit>
+			<trans-unit id="DocMgr_Preview" resname="DocMgr_Preview">
+				<source>Document Preview</source>
+				<target>Document Preview</target>
+			</trans-unit>
+			<trans-unit id="DocMgr_ExtractedData" resname="DocMgr_ExtractedData">
+				<source>Extracted Data</source>
+				<target>Extracted Data</target>
+			</trans-unit>
+			<trans-unit id="DocMgr_Summary" resname="DocMgr_Summary">
+				<source>AI Summary</source>
+				<target>AI Summary</target>
+			</trans-unit>
+			<trans-unit id="DocMgr_Generate" resname="DocMgr_Generate">
+				<source>Generate</source>
+				<target>Generate</target>
+			</trans-unit>
+			<trans-unit id="DocMgr_Chat" resname="DocMgr_Chat">
+				<source>Chat Messages</source>
+				<target>Chat Messages</target>
+			</trans-unit>
+			<trans-unit id="DocMgr_Send" resname="DocMgr_Send">
+				<source>Send</source>
+				<target>Send</target>
+			</trans-unit>
+			<trans-unit id="SummaryType_Brief" resname="SummaryType_Brief">
+				<source>Brief</source>
+				<target>Brief</target>
+			</trans-unit>
+			<trans-unit id="SummaryType_Detailed" resname="SummaryType_Detailed">
+				<source>Detailed</source>
+				<target>Detailed</target>
+			</trans-unit>
+			<trans-unit id="SummaryType_Executive" resname="SummaryType_Executive">
+				<source>Executive</source>
+				<target>Executive</target>
+			</trans-unit>
+			<trans-unit id="SummaryType_KeyPoints" resname="SummaryType_KeyPoints">
+				<source>KeyPoints</source>
+				<target>KeyPoints</target>
+			</trans-unit>
+			<trans-unit id="Status_Uploaded" resname="Status_Uploaded">
+				<source>Uploaded</source>
+				<target>Uploaded</target>
+			</trans-unit>
+			<trans-unit id="Status_Processing" resname="Status_Processing">
+				<source>Processing</source>
+				<target>Processing</target>
+			</trans-unit>
+			<trans-unit id="Status_Processed" resname="Status_Processed">
+				<source>Processed</source>
+				<target>Processed</target>
+			</trans-unit>
+			<trans-unit id="Status_Error" resname="Status_Error">
+				<source>Error</source>
+				<target>Error</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

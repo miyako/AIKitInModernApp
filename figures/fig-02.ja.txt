@@ -1,0 +1,22 @@
+AIConfig - 設定の読み込みパイプライン
+凡例
+処理
+ファイル処理
+データベース
+設定UI
+判定
+アプリケーション起動
+loadConfiguration()
+_loadFromConfigFile()
+いいえ
+ShowAIConfiguration
+APIキー
+あり？
+設定ダイアログを表示
+はい
+プロパティをマッピング
+クラスプロパティを設定
+設定を保存
+_saveToConfigFile()
+AI処理の
+準備完了

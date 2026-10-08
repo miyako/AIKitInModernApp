@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+	<file datatype="plaintext" original="AIConfiguration" source-language="en" target-language="en">
+		<body>
+			<trans-unit id="AIConfig_WindowTitle" resname="AIConfig_WindowTitle">
+				<source>AI Configuration</source>
+				<target>AI Configuration</target>
+			</trans-unit>
+			<trans-unit id="AIConfig_Provider" resname="AIConfig_Provider">
+				<source>Provider:</source>
+				<target>Provider:</target>
+			</trans-unit>
+			<trans-unit id="AIConfig_APIKey" resname="AIConfig_APIKey">
+				<source>API Key:</source>
+				<target>API Key:</target>
+			</trans-unit>
+			<trans-unit id="AIConfig_BaseURL" resname="AIConfig_BaseURL">
+				<source>Base URL:</source>
+				<target>Base URL:</target>
+			</trans-unit>
+			<trans-unit id="AIConfig_DefaultModel" resname="AIConfig_DefaultModel">
+				<source>Default Model*:</source>
+				<target>Default Model*:</target>
+			</trans-unit>
+			<trans-unit id="AIConfig_VisionModel" resname="AIConfig_VisionModel">
+				<source>Vision Model:</source>
+				<target>Vision Model:</target>
+			</trans-unit>
+			<trans-unit id="AIConfig_MaxTokens" resname="AIConfig_MaxTokens">
+				<source>Max Tokens:</source>
+				<target>Max Tokens:</target>
+			</trans-unit>
+			<trans-unit id="AIConfig_Temperature" resname="AIConfig_Temperature">
+				<source>Temperature:</source>
+				<target>Temperature:</target>
+			</trans-unit>
+			<trans-unit id="AIConfig_Mandatory" resname="AIConfig_Mandatory">
+				<source>* : Mandatory field</source>
+				<target>* : Mandatory field</target>
+			</trans-unit>
+			<trans-unit id="AIConfig_Save" resname="AIConfig_Save">
+				<source>Save</source>
+				<target>Save</target>
+			</trans-unit>
+			<trans-unit id="AIConfig_PlaceholderDefaultModel" resname="AIConfig_PlaceholderDefaultModel">
+				<source>eg. gpt-4o-mini</source>
+				<target>eg. gpt-4o-mini</target>
+			</trans-unit>
+			<trans-unit id="AIConfig_PlaceholderVisionModel" resname="AIConfig_PlaceholderVisionModel">
+				<source>eg. gpt-4o</source>
+				<target>eg. gpt-4o</target>
+			</trans-unit>
+			<trans-unit id="AIConfig_PlaceholderMaxTokens" resname="AIConfig_PlaceholderMaxTokens">
+				<source>eg. 1000</source>
+				<target>eg. 1000</target>
+			</trans-unit>
+			<trans-unit id="AIConfig_PlaceholderTemperature" resname="AIConfig_PlaceholderTemperature">
+				<source>eg. 0.3</source>
+				<target>eg. 0.3</target>
+			</trans-unit>
+			<trans-unit id="AIConfig_KeyNotSet" resname="AIConfig_KeyNotSet">
+				<source>Not set: edit Project/Sources/AIProviders.json</source>
+				<target>Not set: edit Project/Sources/AIProviders.json</target>
+			</trans-unit>
+			<trans-unit id="AIConfig_KeySet" resname="AIConfig_KeySet">
+				<source>Set in Project/Sources/AIProviders.json</source>
+				<target>Set in Project/Sources/AIProviders.json</target>
+			</trans-unit>
+			<trans-unit id="AlertMandatoryFields" resname="AlertMandatoryFields">
+				<source>Please fill the mandatory fields</source>
+				<target>Please fill the mandatory fields</target>
+			</trans-unit>
+			<trans-unit id="AlertConfigSaved" resname="AlertConfigSaved">
+				<source>Configuration updated successfully</source>
+				<target>Configuration updated successfully</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

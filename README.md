@@ -1,134 +1,62 @@
-# 4D Technical Note Localisation
+# モダンな4Dアプリケーションで4D AIKitを使用する
 
-Template for translating a **4D technical note** (an English PDF) and **its companion 4D demo project**
-into another language (Japanese by default), with GitHub Copilot doing the work and you making the
-editorial decisions.
+Using 4D AIKit in Modern 4D Applications (Technical Note 26-01): Japanese edition.
 
-The PDF is never patched. It is **disassembled** into plain text, Markdown and figure label files.
-You edit those, then **reassemble** the PDF with one command, as many times as you like.
-Program code is copied byte for byte, and the build refuses to run if code was changed.
+このテクニカルノートでは、4D AIKitの基礎と設定方法を紹介し、テキスト、画像、会話の各機能を組み合わせたビジネス向けのデモを通じて、その実用的な使い方を説明します。デモのAIドキュメントマネージャーでは、請求書や契約書などの文書をアップロードすると、ビジョンモデルが構造化データを抽出し、4種類の要約を生成します。さらに、その文書についてAIとチャットできます。AIの処理はワーカーで非同期に実行されるため、ユーザーインターフェースはブロックされません。コスト、パフォーマンス、セキュリティなど、デプロイ時の注意点も取り上げます。
 
-```mermaid
-flowchart LR
-  A[document/*.pdf] -->|make extract| B[src/en.md<br>figures/fig-NN.en.txt]
-  B -->|agent translates| C[src/ja.md<br>figures/fig-NN.ja.txt]
-  C -->|you edit| C
-  C -->|make| D[build/*_ja.pdf]
-  E[demo/Project] -->|agent localises: XLIFF, data| F[demo/Project]
-  D & F -->|release| G[GitHub Release]
-```
+This technical note introduces 4D AIKit, how to configure it, and how to combine its text, vision and chat features in a business demo: an AI document manager that extracts structured data from uploaded documents, generates four kinds of summaries and lets you chat about each document, with all AI calls running asynchronously in workers.
 
-## Quick start
+## Download
 
-1. **Use this template** (on GitHub, *Use this template → Create a new repository*), then clone it.
-2. Add the source material and push:
-   - the English PDF → `document/<name>.pdf` (exactly one PDF)
-   - the 4D project → `demo/<ProjectName>/` (the folder that contains `Project/`)
-3. Start the agent. Use either:
-   - **Locally** (Copilot CLI or the Copilot app, recommended): open the repository and prompt:
-     > Localise this technical note and its demo into Japanese. Follow .github/copilot-instructions.md and stop at every checkpoint for my review.
-   - **Cloud agent:** open an issue with the **Localisation request** form and assign it to Copilot.
-     The agent works in a pull request. Reply in the PR to give directions at each checkpoint.
-4. Review at each **checkpoint** (see below). Edit files directly or tell the agent what to change.
-5. Release: tell the agent *"release v1.0.0"*, or run the steps under [Release](#release).
+| | |
+|---|---|
+| PDF (Japanese) | [26-01_AIKitInModernApp_ja.pdf](https://github.com/miyako/AIKitInModernApp/releases/latest/download/26-01_AIKitInModernApp_ja.pdf) |
+| 4D demo | [AIKitInModernApp.zip](https://github.com/miyako/AIKitInModernApp/releases/latest/download/AIKitInModernApp.zip) |
+| Original (English) | `document/26-01_AIKitInModernApp.pdf` |
 
-## Checkpoints: where you decide
+## Demo
 
-The agent stops and asks you at each of these points:
+- 4D version: 4D 21 R3 or later (tested with 21 R3). The 4D AIKit component is installed through the project dependencies (`Project/Sources/dependencies.json`); PDF conversion uses the pdfium plugin in `Plugins/`.
+- Open `demo/AIKitInModernApp/Project/AIKitInModernApp.4DProject`.
+- Languages: English and Japanese. The UI follows the system language; the XLIFF files are in `Resources/<lang>.lproj/`.
+- API key: copy `Project/Sources/AIProviders.example.json` to `Project/Sources/AIProviders.json` and enter your OpenAI key (or edit it on the AI page of the Settings). This file is ignored by git; never commit it. Models, max tokens and temperature are set in the AI Configuration dialog and saved to `aiconfig.json` in the database folder.
+- At startup the Document Manager opens without blocking, in the application process; if no API key is found, the AI Configuration dialog opens instead. Choosing a menu item again brings the existing window to the front.
 
-| # | After | You review / decide |
-|---|---|---|
-| 1 | `make inspect` | Detected heading, code and caption styles in `technote.json`; target language; output style |
-| 2 | `make extract` | `src/en.md` reads correctly (headings, code blocks, figures in the right places); OCR'd figure text |
-| 3 | First translation | `src/ja.md`, `glossary.md`: terminology and tone |
-| 4 | Figures | Contact sheets `build/contact-N.png`; which screenshots need a real localised screenshot |
-| 5 | Demo data (optional) | Whether to replace the sample data (e.g. places) with local equivalents, and which ones |
-| 6 | 4D project | Localisation plan: XLIFF scope, new attributes, UI behaviour |
-| 7 | Release | Final PDF and demo; the repository README (from `.github/templates/README.technote.md`); version tag |
+## Differences from the original
 
-Edits are always safe. Generated output goes to `build/` only, and `make extract` never overwrites existing files.
+- Screenshots (figures 1, 3, 5, 7, 8 and 9) were retaken with the localised demo. Diagram labels (figures 2, 4, 6 and 10) are translated; the decision in figure 2 is now "API key found?".
+- Dates in the analysis prompt and the examples use YYYY-MM-DD, as in the demo code (the original text says MM-DD-YYYY).
+- The prompt blocks show the English prompts as the demo sends them, with the added line that asks for answers in the UI language.
+- The demo:
+  - XLIFF localisation of menus, forms, messages and window titles (English and Japanese).
+  - The AI prompts stay in English and end with a line asking the model to answer in the UI language.
+  - A computed `statusLabel` attribute shows the document status in the UI language; the summary-type drop-down shows localised labels and keeps the stored codes.
+  - The API key is read from `Project/Sources/AIProviders.json` (4D AIKit provider settings) instead of `aiconfig.json`; the dialog no longer stores the key.
+  - Non-blocking startup windows (`DIALOG(...; *)` in the application process), reused on later calls.
+  - Bug fix: the prompts contained literal `\n` instead of line breaks.
 
-## Files you edit
+## Editing and rebuilding
+
+The PDF is generated from plain-text sources. Edit them and run `make`.
 
 | File | What |
 |---|---|
-| `src/ja.md` | Translated body text (Markdown). Keep the block structure parallel to `src/en.md`. **Don't touch code blocks.** |
-| `figures/fig-NN.ja.txt` | Text drawn in figure NN, one line per line of `fig-NN.en.txt` (see below) |
-| `figures/layout/fig-NN.json` | Optional per-label tweaks (size, weight, alignment, position) |
-| `figures/fig-NN-ja.png` | Optional ready-made replacement image (e.g. a screenshot of the localised app) |
-| `glossary.md` | Terminology decisions. Change a term here first. |
-| `technote.json` | Document settings (normally written once by the agent) |
-
-### Figure text rules
-
-Line N of `fig-NN.ja.txt` corresponds to line N of `fig-NN.en.txt`:
-
-- **identical to the English line:** the original pixels are kept. Use this for code, numbers and identifiers.
-- **empty:** the English text is erased and nothing is drawn (to merge two lines into one).
-- **anything else:** the English text is erased and this text is drawn in its place.
-
-Per-label overrides in `figures/layout/fig-NN.json` → `items[N]`:
-`"scale": 1.2`, `"size": 28`, `"weight": "light"|"regular"|"bold"`, `"align": "left"|"center"`,
-`"dx"`, `"dy"`, `"box": [x, y, w, h]`, `"bg"`, `"fg"`, `"erase_pad"`.
-Per figure: `"localize": false` keeps the image unchanged; `"replace": "fig-NN-ja.png"` uses a ready-made image.
-
-## Commands
-
-| Command | Does |
-|---|---|
-| `make setup` | Create `.venv` and install Python packages |
-| `make inspect` | Analyse the PDF and suggest `technote.json` (written only if not configured yet) |
-| `make extract` | Disassemble the PDF (one time; never overwrites) |
-| `make check` | Verify code blocks are unchanged and figure references match |
-| `make figures` | Render localised figures into `build/figures/` |
-| `make review` | Contact sheets comparing original and localised figures (`FIGS="02 05"` to select) |
-| `make` | check → figures → PDF in `build/` |
-| `make demo-zip` | Zip each committed 4D project in `demo/` into `build/<Name>.zip` |
-| `make release-assets` | PDF + demo zips |
-| `make clean` | Remove `build/` |
-
-## Requirements
-
-| | macOS (local) | Linux (cloud agent / Actions) |
-|---|---|---|
-| Python 3.10+ | ✓ | ✓ (preinstalled) |
-| Google Chrome / Chromium | `/Applications/Google Chrome.app` | preinstalled on GitHub runners, or set `$CHROME` |
-| Tesseract OCR | `brew install tesseract` | `apt install tesseract-ocr` |
-| Japanese fonts for figures | Hiragino (built in) | `apt install fonts-noto-cjk` |
-| tool4d (4D headless checks) | optional, `/Applications/tool4d/…` or `$TOOL4D` | not available, so 4D checks are skipped |
-
-`.github/workflows/copilot-setup-steps.yml` prepares the Linux environment for the cloud agent.
-
-> **Note:** figures and PDF text are rendered with Hiragino on macOS and Noto Sans CJK on Linux,
-> so the two builds look slightly different. Build the final release on the platform you reviewed.
-
-## Release
+| `src/ja.md` | Translated body text. **Don't touch code blocks** (`make check` verifies them). |
+| `figures/fig-NN.ja.txt` | Text drawn in figure NN. Line N corresponds to line N of `fig-NN.en.txt`: an identical line keeps the original, an empty line erases it. |
+| `figures/layout/fig-NN.json` | Per-label overrides for size, weight, alignment and position; `"replace"` uses a ready-made image |
+| `glossary.md` | Terminology |
 
 ```sh
-make release-assets                       # build/<name>_ja.pdf, build/<Demo>.zip
-git tag v1.0.0 && git push origin v1.0.0
-gh release create v1.0.0 build/*_ja.pdf build/*.zip --title "…" --notes "…"
+make            # check → figures → build/26-01_AIKitInModernApp_ja.pdf
+make check      # code blocks unchanged, figure references complete
+make review     # contact sheets of the figures (build/contact-N.png)
+make release-assets
 ```
 
-Before the first release, the agent replaces this README with the converted document's own README, built from
-`.github/templates/README.technote.md` (title, introduction, downloads, demo notes, differences, how to edit).
-This usage guide then stays available in the template repository.
+Requirements: Python 3, Google Chrome, CJK fonts, and Tesseract (only needed for re-extraction).
+See the [localisation template](https://github.com/miyako/4d-technote-localisation-template) for the full workflow.
 
-If you push a tag without creating the release yourself, `.github/workflows/release.yml` builds the assets
-on Linux and publishes them. It skips the upload if the release already has assets.
+## Credits
 
-## Layout
-
-```
-document/            original PDF (read-only)
-src/                 en.md (extracted), ja.md (translation)
-figures/             fig-NN.png, fig-NN.en.txt, fig-NN.ja.txt, layout/fig-NN.json
-demo/<Name>/         4D project
-data/                localised demo data (optional)
-glossary.md          terminology
-technote.json        document-specific settings
-style/style.css      print stylesheet
-tools/               pipeline (Python)
-.github/             agent instructions, skills, workflows, templates/README.technote.md
-build/               output (git-ignored)
-```
+- Original: Soukaina Bachikh, Customer Success Engineer, 4D Inc.
+- Produced with [4d-technote-localisation-template](https://github.com/miyako/4d-technote-localisation-template) and GitHub Copilot.

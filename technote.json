@@ -1,5 +1,36 @@
 {
   "$comment": "Document-specific settings. Run `make inspect` and review; see tools/config.py for all keys and defaults.",
   "source_lang": "en",
-  "target_lang": "ja"
+  "target_lang": "ja",
+  "page_size": "letter",
+  "accent_color": "#2f5496",
+  "cover": {
+    "page": 1,
+    "lines": 3
+  },
+  "skip_pages": [1, 2],
+  "footer_y": 714,
+  "heading": {
+    "fonts": ["HelveticaNeue-Medium"],
+    "min_size": 12.0,
+    "levels_by_x": {"72": 2, "90": 3, "108": 4}
+  },
+  "code": {
+    "$comment": "Code is black SegoeUIHistoric in boxes; #0000ff is hyperlinks, not code.",
+    "colors": [],
+    "fonts": ["SegoeUIHistoric"]
+  },
+  "bullets": {
+    "fonts": ["SymbolMT", "Wingdings-Regular"]
+  },
+  "caption": {
+    "$comment": "Captions are bold or regular 'Figure N - ...'; italic text is used for notes.",
+    "italic": false,
+    "min_x": 70,
+    "pattern": "^\\s*Figure \\d+\\s*[-–]"
+  },
+  "table": {
+    "$comment": "10.1 pt is shared by the p4 table, notes and captions; tables are fixed by hand.",
+    "size": null
+  }
 }

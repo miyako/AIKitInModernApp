@@ -1,0 +1,27 @@
+AI Document Analyzer - Processing Pipeline
+Legend:
+Process
+File Processing
+Database
+AI Vision Call
+Decision
+Document Upload
+Prepare Document File
+(Path normalization)
+Is PDF?
+Yes
+Convert PDF→PNG
+(144 DPI, Page 1)
+Complete
+No
+Build Extraction
+Prompt
+Save
+Extracted Data
+AI Vision Analysis
+(Extract structured data)
+Yes
+Success?
+Parse JSON Response
+No
+Error

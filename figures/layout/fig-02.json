@@ -1,0 +1,221 @@
+{
+ "source": "fig-02.png",
+ "page": 10,
+ "width_pt": 267.0,
+ "localize": true,
+ "items": [
+  {
+   "box": [
+    151,
+    15,
+    399,
+    19
+   ],
+   "align": "center",
+   "weight": "bold"
+  },
+  {
+   "box": [
+    21,
+    39,
+    56,
+    14
+   ],
+   "align": "left",
+   "weight": "bold"
+  },
+  {
+   "box": [
+    70,
+    67,
+    43,
+    14
+   ],
+   "align": "left"
+  },
+  {
+   "box": [
+    70,
+    98,
+    82,
+    10
+   ],
+   "align": "left"
+  },
+  {
+   "box": [
+    70,
+    127,
+    51,
+    14
+   ],
+   "align": "left"
+  },
+  {
+   "box": [
+    70,
+    158,
+    87,
+    10
+   ],
+   "align": "left"
+  },
+  {
+   "box": [
+    70,
+    195,
+    46,
+    14
+   ],
+   "align": "left"
+  },
+  {
+   "box": [
+    293,
+    99,
+    113,
+    14
+   ],
+   "align": "center",
+   "weight": "bold"
+  },
+  {
+   "box": [
+    291,
+    173,
+    118,
+    12
+   ],
+   "align": "center",
+   "weight": "bold"
+  },
+  {
+   "box": [
+    296,
+    192,
+    107,
+    10
+   ],
+   "align": "center"
+  },
+  {
+   "box": [
+    440,
+    263,
+    41,
+    12
+   ],
+   "align": "center",
+   "weight": "bold",
+   "size": 12
+  },
+  {
+   "box": [
+    515,
+    268,
+    118,
+    12
+   ],
+   "align": "center",
+   "weight": "bold"
+  },
+  {
+   "box": [
+    322,
+    274,
+    57,
+    14
+   ],
+   "align": "center",
+   "weight": "bold"
+  },
+  {
+   "box": [
+    334,
+    290,
+    32,
+    9
+   ],
+   "align": "center",
+   "weight": "bold"
+  },
+  {
+   "box": [
+    527,
+    288,
+    97,
+    10
+   ],
+   "align": "center"
+  },
+  {
+   "box": [
+    299,
+    342,
+    19,
+    8
+   ],
+   "align": "center",
+   "weight": "bold",
+   "size": 12
+  },
+  {
+   "box": [
+    304,
+    373,
+    92,
+    12
+   ],
+   "align": "center",
+   "weight": "bold"
+  },
+  {
+   "box": [
+    303,
+    392,
+    94,
+    9
+   ],
+   "align": "center"
+  },
+  {
+   "box": [
+    291,
+    453,
+    117,
+    12
+   ],
+   "align": "center",
+   "weight": "bold"
+  },
+  {
+   "box": [
+    301,
+    472,
+    96,
+    10
+   ],
+   "align": "center"
+  },
+  {
+   "box": [
+    322,
+    534,
+    55,
+    10
+   ],
+   "align": "center",
+   "weight": "bold"
+  },
+  {
+   "box": [
+    311,
+    550,
+    76,
+    10
+   ],
+   "align": "center",
+   "weight": "bold"
+  }
+ ]
+}

@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+	<file datatype="plaintext" original="messages" source-language="en" target-language="en">
+		<body>
+			<trans-unit id="AlertNoExtractedDataToEdit" resname="AlertNoExtractedDataToEdit">
+				<source>No extracted data to edit</source>
+				<target>No extracted data to edit</target>
+			</trans-unit>
+			<trans-unit id="AlertFileNotFound" resname="AlertFileNotFound">
+				<source>File not found: {path}</source>
+				<target>File not found: {path}</target>
+			</trans-unit>
+			<trans-unit id="AlertFileTooLarge" resname="AlertFileTooLarge">
+				<source>File too large. Maximum size is 10MB.</source>
+				<target>File too large. Maximum size is 10MB.</target>
+			</trans-unit>
+			<trans-unit id="AlertSaveDocumentFailed" resname="AlertSaveDocumentFailed">
+				<source>Failed to save document record</source>
+				<target>Failed to save document record</target>
+			</trans-unit>
+			<trans-unit id="DocumentType_Unknown" resname="DocumentType_Unknown">
+				<source>Unknown</source>
+				<target>Unknown</target>
+			</trans-unit>
+			<trans-unit id="Context_NoExtractedData" resname="Context_NoExtractedData">
+				<source>No extracted data available.</source>
+				<target>No extracted data available.</target>
+			</trans-unit>
+			<trans-unit id="Chat_Empty" resname="Chat_Empty">
+				<source>💬 No messages yet. Start a conversation!</source>
+				<target>💬 No messages yet. Start a conversation!</target>
+			</trans-unit>
+			<trans-unit id="Chat_You" resname="Chat_You">
+				<source>👤 You</source>
+				<target>👤 You</target>
+			</trans-unit>
+			<trans-unit id="Chat_Assistant" resname="Chat_Assistant">
+				<source>🤖 Assistant</source>
+				<target>🤖 Assistant</target>
+			</trans-unit>
+			<trans-unit id="Chat_Thinking1" resname="Chat_Thinking1">
+				<source>💭 Thinking...</source>
+				<target>💭 Thinking...</target>
+			</trans-unit>
+			<trans-unit id="Chat_Thinking2" resname="Chat_Thinking2">
+				<source>🤔 Processing...</source>
+				<target>🤔 Processing...</target>
+			</trans-unit>
+			<trans-unit id="Chat_Thinking3" resname="Chat_Thinking3">
+				<source>⚡ Analyzing...</source>
+				<target>⚡ Analyzing...</target>
+			</trans-unit>
+			<trans-unit id="Chat_Thinking4" resname="Chat_Thinking4">
+				<source>🔍 Examining...</source>
+				<target>🔍 Examining...</target>
+			</trans-unit>
+			<trans-unit id="Chat_Thinking5" resname="Chat_Thinking5">
+				<source>✨ Generating response...</source>
+				<target>✨ Generating response...</target>
+			</trans-unit>
+			<trans-unit id="Extracted_NoDataAvailable" resname="Extracted_NoDataAvailable">
+				<source>No extracted data available</source>
+				<target>No extracted data available</target>
+			</trans-unit>
+			<trans-unit id="Extracted_NoDataFound" resname="Extracted_NoDataFound">
+				<source>⚠️ No extracted data found</source>
+				<target>⚠️ No extracted data found</target>
+			</trans-unit>
+			<trans-unit id="Extracted_NoDataFoundError" resname="Extracted_NoDataFoundError">
+				<source>❌ No extracted data found</source>
+				<target>❌ No extracted data found</target>
+			</trans-unit>
+			<trans-unit id="Extracted_DocumentNotFound" resname="Extracted_DocumentNotFound">
+				<source>Document not found</source>
+				<target>Document not found</target>
+			</trans-unit>
+			<trans-unit id="Extracted_Details" resname="Extracted_Details">
+				<source>{type} DETAILS</source>
+				<target>{type} DETAILS</target>
+			</trans-unit>
+			<trans-unit id="Extracted_Date" resname="Extracted_Date">
+				<source>Extracted: {date}</source>
+				<target>Extracted: {date}</target>
+			</trans-unit>
+			<trans-unit id="Extracted_Error" resname="Extracted_Error">
+				<source>❌ ERROR&#10;&#10;{message}</source>
+				<target>❌ ERROR&#10;&#10;{message}</target>
+			</trans-unit>
+			<trans-unit id="Extracted_Processing" resname="Extracted_Processing">
+				<source>🔄 Processing document asynchronously...&#10;&#10;Please wait while the AI analyzes your document.</source>
+				<target>🔄 Processing document asynchronously...&#10;&#10;Please wait while the AI analyzes your document.</target>
+			</trans-unit>
+			<trans-unit id="Extracted_ClickAnalyze" resname="Extracted_ClickAnalyze">
+				<source>No extracted data available.&#10;&#10;Please click 'Analyze Selected' to extract data from this document.</source>
+				<target>No extracted data available.&#10;&#10;Please click 'Analyze Selected' to extract data from this document.</target>
+			</trans-unit>
+			<trans-unit id="ConfirmDeleteDocument" resname="ConfirmDeleteDocument">
+				<source>Delete document '{name}'? This action cannot be undone.</source>
+				<target>Delete document '{name}'? This action cannot be undone.</target>
+			</trans-unit>
+			<trans-unit id="AlertDocumentDeleted" resname="AlertDocumentDeleted">
+				<source>Document and all related data deleted successfully</source>
+				<target>Document and all related data deleted successfully</target>
+			</trans-unit>
+			<trans-unit id="AlertSelectDocumentToDelete" resname="AlertSelectDocumentToDelete">
+				<source>Please select a document to delete</source>
+				<target>Please select a document to delete</target>
+			</trans-unit>
+			<trans-unit id="Summary_NoDocumentSelected" resname="Summary_NoDocumentSelected">
+				<source>No document selected</source>
+				<target>No document selected</target>
+			</trans-unit>
+			<trans-unit id="Upload_SelectDocument" resname="Upload_SelectDocument">
+				<source>Select a document to upload</source>
+				<target>Select a document to upload</target>
+			</trans-unit>
+			<trans-unit id="AlertUploaded" resname="AlertUploaded">
+				<source>Document uploaded successfully. Click 'Analyze Selected' to extract data.</source>
+				<target>Document uploaded successfully. Click 'Analyze Selected' to extract data.</target>
+			</trans-unit>
+			<trans-unit id="AlertNoExtractedDataAnalyzeFirst" resname="AlertNoExtractedDataAnalyzeFirst">
+				<source>No extracted data found for this document.&#10;&#10;Please analyze the document first.</source>
+				<target>No extracted data found for this document.&#10;&#10;Please analyze the document first.</target>
+			</trans-unit>
+			<trans-unit id="AlertSelectDocumentFirst" resname="AlertSelectDocumentFirst">
+				<source>Please select a document first.</source>
+				<target>Please select a document first.</target>
+			</trans-unit>
+			<trans-unit id="AlertSelectProcessedDocument" resname="AlertSelectProcessedDocument">
+				<source>Please select a processed document first</source>
+				<target>Please select a processed document first</target>
+			</trans-unit>
+			<trans-unit id="ConfirmReanalyze" resname="ConfirmReanalyze">
+				<source>This document has already been analyzed. Do you really want to reanalyze?</source>
+				<target>This document has already been analyzed. Do you really want to reanalyze?</target>
+			</trans-unit>
+			<trans-unit id="Summary_Generating" resname="Summary_Generating">
+				<source>⏳ Generating {type} summary...</source>
+				<target>⏳ Generating {type} summary...</target>
+			</trans-unit>
+			<trans-unit id="Summary_NotAvailable" resname="Summary_NotAvailable">
+				<source>No &lt;strong&gt;{type}&lt;/strong&gt; summary available.</source>
+				<target>No &lt;strong&gt;{type}&lt;/strong&gt; summary available.</target>
+			</trans-unit>
+			<trans-unit id="Summary_ClickGenerate" resname="Summary_ClickGenerate">
+				<source>Click &lt;strong&gt;Generate&lt;/strong&gt; to create one.</source>
+				<target>Click &lt;strong&gt;Generate&lt;/strong&gt; to create one.</target>
+			</trans-unit>
+			<trans-unit id="Summary_NoneAvailable" resname="Summary_NoneAvailable">
+				<source>No summary available. Click Generate to create one.</source>
+				<target>No summary available. Click Generate to create one.</target>
+			</trans-unit>
+			<trans-unit id="AlertInvalidJSON" resname="AlertInvalidJSON">
+				<source>Invalid JSON format!&#10;&#10;Please fix the JSON syntax before saving.</source>
+				<target>Invalid JSON format!&#10;&#10;Please fix the JSON syntax before saving.</target>
+			</trans-unit>
+			<trans-unit id="AlertExtractedDataSaved" resname="AlertExtractedDataSaved">
+				<source>✅ Extracted data saved successfully!</source>
+				<target>✅ Extracted data saved successfully!</target>
+			</trans-unit>
+			<trans-unit id="AlertSaveDataError" resname="AlertSaveDataError">
+				<source>❌ Error saving data to database.</source>
+				<target>❌ Error saving data to database.</target>
+			</trans-unit>
+			<trans-unit id="AlertNoExtractedDataEntity" resname="AlertNoExtractedDataEntity">
+				<source>❌ No extracted data entity found.</source>
+				<target>❌ No extracted data entity found.</target>
+			</trans-unit>
+			<trans-unit id="AlertDocumentNotFound" resname="AlertDocumentNotFound">
+				<source>ERROR: Document not found!</source>
+				<target>ERROR: Document not found!</target>
+			</trans-unit>
+			<trans-unit id="AlertNoExtractedDataForDocument" resname="AlertNoExtractedDataForDocument">
+				<source>ERROR: No extracted data found for this document! Please analyze the document first.</source>
+				<target>ERROR: No extracted data found for this document! Please analyze the document first.</target>
+			</trans-unit>
+			<trans-unit id="AlertContextEmpty" resname="AlertContextEmpty">
+				<source>ERROR: Context is empty!</source>
+				<target>ERROR: Context is empty!</target>
+			</trans-unit>
+			<trans-unit id="Error_Unknown" resname="Error_Unknown">
+				<source>Unknown error</source>
+				<target>Unknown error</target>
+			</trans-unit>
+			<trans-unit id="Error_InvalidHistory" resname="Error_InvalidHistory">
+				<source>Invalid conversation history</source>
+				<target>Invalid conversation history</target>
+			</trans-unit>
+			<trans-unit id="Error_CreateConversation" resname="Error_CreateConversation">
+				<source>Failed to create conversation</source>
+				<target>Failed to create conversation</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

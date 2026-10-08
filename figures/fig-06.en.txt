@@ -1,0 +1,15 @@
+User asks question
+Get/Create
+Conversation
+Load History
+Add User Message
+Update
+Legend:
+AI Processes with Context
+Process
+Database
+AI Call
+Add AI Response
+Return
+Response
+Decision

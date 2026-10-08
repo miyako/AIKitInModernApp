@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+	<file datatype="plaintext" original="DocumentManager" source-language="en" target-language="ja">
+		<body>
+			<trans-unit id="DocMgr_WindowTitle" resname="DocMgr_WindowTitle">
+				<source>Document Manager</source>
+				<target>ドキュメントマネージャー</target>
+			</trans-unit>
+			<trans-unit id="DocMgr_Title" resname="DocMgr_Title">
+				<source>AI Document Manager</source>
+				<target>AIドキュメントマネージャー</target>
+			</trans-unit>
+			<trans-unit id="DocMgr_ColFileName" resname="DocMgr_ColFileName">
+				<source>File Name</source>
+				<target>ファイル名</target>
+			</trans-unit>
+			<trans-unit id="DocMgr_ColType" resname="DocMgr_ColType">
+				<source>Type</source>
+				<target>種類</target>
+			</trans-unit>
+			<trans-unit id="DocMgr_ColUploadDate" resname="DocMgr_ColUploadDate">
+				<source>Upload Date</source>
+				<target>登録日</target>
+			</trans-unit>
+			<trans-unit id="DocMgr_ColStatus" resname="DocMgr_ColStatus">
+				<source>Status</source>
+				<target>ステータス</target>
+			</trans-unit>
+			<trans-unit id="DocMgr_Upload" resname="DocMgr_Upload">
+				<source>Upload Document</source>
+				<target>文書をアップロード</target>
+			</trans-unit>
+			<trans-unit id="DocMgr_Documents" resname="DocMgr_Documents">
+				<source>Documents</source>
+				<target>文書</target>
+			</trans-unit>
+			<trans-unit id="DocMgr_Analyze" resname="DocMgr_Analyze">
+				<source>Analyze Selected</source>
+				<target>選択した文書を解析</target>
+			</trans-unit>
+			<trans-unit id="DocMgr_Delete" resname="DocMgr_Delete">
+				<source>Delete Document</source>
+				<target>文書を削除</target>
+			</trans-unit>
+			<trans-unit id="DocMgr_Preview" resname="DocMgr_Preview">
+				<source>Document Preview</source>
+				<target>文書プレビュー</target>
+			</trans-unit>
+			<trans-unit id="DocMgr_ExtractedData" resname="DocMgr_ExtractedData">
+				<source>Extracted Data</source>
+				<target>抽出データ</target>
+			</trans-unit>
+			<trans-unit id="DocMgr_Summary" resname="DocMgr_Summary">
+				<source>AI Summary</source>
+				<target>AI要約</target>
+			</trans-unit>
+			<trans-unit id="DocMgr_Generate" resname="DocMgr_Generate">
+				<source>Generate</source>
+				<target>生成</target>
+			</trans-unit>
+			<trans-unit id="DocMgr_Chat" resname="DocMgr_Chat">
+				<source>Chat Messages</source>
+				<target>チャットメッセージ</target>
+			</trans-unit>
+			<trans-unit id="DocMgr_Send" resname="DocMgr_Send">
+				<source>Send</source>
+				<target>送信</target>
+			</trans-unit>
+			<trans-unit id="SummaryType_Brief" resname="SummaryType_Brief">
+				<source>Brief</source>
+				<target>簡潔</target>
+			</trans-unit>
+			<trans-unit id="SummaryType_Detailed" resname="SummaryType_Detailed">
+				<source>Detailed</source>
+				<target>詳細</target>
+			</trans-unit>
+			<trans-unit id="SummaryType_Executive" resname="SummaryType_Executive">
+				<source>Executive</source>
+				<target>重役</target>
+			</trans-unit>
+			<trans-unit id="SummaryType_KeyPoints" resname="SummaryType_KeyPoints">
+				<source>KeyPoints</source>
+				<target>要点</target>
+			</trans-unit>
+			<trans-unit id="Status_Uploaded" resname="Status_Uploaded">
+				<source>Uploaded</source>
+				<target>アップロード済み</target>
+			</trans-unit>
+			<trans-unit id="Status_Processing" resname="Status_Processing">
+				<source>Processing</source>
+				<target>処理中</target>
+			</trans-unit>
+			<trans-unit id="Status_Processed" resname="Status_Processed">
+				<source>Processed</source>
+				<target>解析済み</target>
+			</trans-unit>
+			<trans-unit id="Status_Error" resname="Status_Error">
+				<source>Error</source>
+				<target>エラー</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

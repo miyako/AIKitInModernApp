@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+	<file datatype="plaintext" original="menu" source-language="en" target-language="en">
+		<body>
+			<trans-unit id="MenuItemDocumentManager" resname="MenuItemDocumentManager">
+				<source>Document Manager</source>
+				<target>Document Manager</target>
+			</trans-unit>
+			<trans-unit id="MenuItemAIConfiguration" resname="MenuItemAIConfiguration">
+				<source>AI Configuration</source>
+				<target>AI Configuration</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
